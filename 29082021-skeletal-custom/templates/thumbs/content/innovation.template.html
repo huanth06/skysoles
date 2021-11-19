@@ -1,0 +1,27 @@
+
+[% if [@name@] %]
+<li>
+	[%set [@image@] %][%asset_url type:'content' id:'[@content_id@]' default:'na' /%][%/set%]
+	[% if [@image@] not like 'na' %]
+	<div data-parallax="scroll" style="background-image: url([%asset_url type:'content' id:'[@content_id@]' default:''/%])" data-image-src="[%asset_url type:'content' id:'[@content_id@]' default:''/%]" class="paralax-bg pull-right full-width innovation-box-image">
+</div>
+	[%/ if%]
+	<div class="bg-white">
+		<div class="container">
+		<div class="row">
+			<div class="innovation-box-wrap" >
+				<div class="innovation-box-text-content" >
+					<p class="innovation-box-icon"><img src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%]" alt="[@name@]" /></p>
+					<div class="innovation-box-text">
+						<h3>[@name@]</h3>
+						<div class="innovation-box-des">
+							[@content_description1@]
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</li>
+[%/ if%]

@@ -1,0 +1,29 @@
+.email-page{background: url('[$home_url$]/assets/themes/skysoles/img/SkySoles-bg-homepage-content.png') repeat 0 0;font-family: 'Ubuntu', sans-serif; text-align: center; padding: 20px 20px 32px;font-size: 15px; color: #333333;position: relative;}
+.email-page a{text-decoration: none;}
+.email-page-bottom{display: inline-block;width: 100%; height: 32px;  background: #EEF1F3; position: absolute; left: 0; bottom: 0;}
+.email-page-content{background: #FFF; max-width: 768px; margin: 0 auto;}
+.container{display: inline-block; max-width: 600px;}
+.header{padding: 50px 0 0; display: inline-block; width: 100%;}
+.header a{float: left; width: 220px; text-align: left;}
+.header p{font-size: 18px; font-weight: 700; color: #777777; float: right;margin: 11px 0 0;}
+img{max-width: 100%;}
+h1{font-size: 30px; font-family: 'Ubuntu', font-weight: 700; color: #111; sans-serif; text-transform: uppercase; margin: 50px 0;}
+a{color: #333;}
+a:hover{text-decoration: underline;}
+.btn{text-transform: uppercase; color: #FFF; font-weight: 700; background: #075197; display: inline-block;}
+.btn:hover{text-decoration: none;}
+.banner img{display: inline-block;max-width: 100%;}
+.wrapper-footer{background: #333333; color: #FFF; font-size: 15px; padding: 48px 0 52px;}
+.wrapper-footer-middle{display: inline-block; width: 100%; text-align: center; margin: 30px 0 36px;}
+.wrapper-footer-middle a i{margin-right: 10px;}
+.wrapper-footer a{color: #FFF;}
+.text-left{float: left;}
+.text-right{float: right; margin:0;}
+.wrapper-footer-bottom ul{margin: 0;}
+.wrapper-footer-bottom ul li{display: inline-block; margin-right: 15px; vertical-align: top;}
+.wrapper-footer-bottom ul li:last-child{margin-right: 0;}
+.fas, .fab{background: url([$home_url$]/assets/images/email-template/skysoles-email-template-bg.png) no-repeat; display: inline-block;vertical-align: middle;}
+.mail-content{font-size: 17px;}
+.mail-content p{margin: 0 0 20px;}
+.btn.btn-shop-now{margin: 13px 0 33px; font-size: 18px;width: 280px; height: 56px; line-height: 56px;  }
+.btn.btn-shop-now .fa-angle-right{background-position: -0px -146px; width: 9px; height: 12px; margin-left: 8px;}

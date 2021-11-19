@@ -1,0 +1,188 @@
+ 	</div>
+</div>
+[%if [@config:show_home_ads@]%]
+	[%advert type:'text' template:'full-banner' limit:'1' ad_group:'full-width-banner' allow_duplicate:'1'%]
+		[%param *header%]
+			<div class="wrapper-homepage-banner">
+				<div class="homepage-banner">
+				[%/param%]
+				[%param *footer%]
+				</div>
+			</div>
+		[%/param%]
+		[%param *ifempty%]
+			<a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[@config:home_url@]/_cpanel?item=adw&page=view&id=New&plan_id=1">
+				Click to add a banner<br/>
+			</a>
+		[%/param%]
+	[%/advert%]
+[%/if%]
+[%if [@page_content@]%]
+<div class="wrapper-homepage-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="homepage-content" class="n-responsive-content">[@page_content@]</div>
+			</div>
+		</div>
+	</div>
+</div>
+[%/if%]
+[%advert type:'text' template:'category-boxes' limit:'4' ad_group:'category boxes'%]
+	[%param *header%]
+	<div class="wrapper-featured-products">
+			[%/param%]
+			[%param *footer%]
+	</div>
+	[%/param%]
+[%/advert%]
+<div class="wrapper-homepage-advert">
+	<div class="container-fluid">
+		<div class="row">
+			[%advert type:'text' limit:'1' ad_group:'left-banner'%]
+				[%param *body%]
+					<div class="col-xs-12 col-sm-4">
+						<div class="left-banner" data-href="[@url@]">
+							<a class="image" href="[@url@]">
+				                <div class="caption-left-banner">
+				                   <h5 class="headline">[@headline@]</h5>
+				                </div>
+				             </a>
+				             <img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%END asset_url%]" alt="[@headline@]" />
+				             [%if [@linktext@]%]
+				             <a href="[@url@]" class="learn-more">[@linktext@]<i class="fas fa-chevron-right"></i></a>
+				             [%/if%]
+						</div>
+					</div>
+				[%/param%]
+				[%param *footer %]
+					[%site_value id:'footer_javascript'%]
+						<script type="text/javascript">
+							$(document).ready(function(){
+								$(".left-banner").click(function(){
+									var url = $(this).attr('data-href');
+									window.location = url;
+								})
+							});
+						</script>
+					[%/site_value%]
+				[%/param%]
+			[%/advert%]
+			<div class="col-xs-12 col-sm-8">
+				[%thumb_list type:'content' content_type:'gallery' limit:'8' template:'gallery-thumb' filter_category:'110'%]
+					[%param *header%]
+					[%site_value id:'footer_javascript'%]
+						<script type="text/javascript">
+							$(document).ready(function(){
+								$(".wrapper-gallery-gossip").slick({
+									infinite: true,
+									autoplay: true,
+									adaptiveHeight: true,
+									autoplaySpeed: 3000,
+									slidesToShow: 2,
+									slidesToScroll: 1,
+									responsive: [
+								    {
+								      breakpoint: 1199,
+								      settings: {
+								        slidesToShow: 2,
+								        slidesToScroll: 1,
+								        infinite: true,
+								      }
+								    },
+								    {
+								      breakpoint: 850,
+								      settings: {
+								        slidesToShow: 1,
+								        slidesToScroll: 1
+								      }
+								    },
+								    {
+								      breakpoint: 768,
+								      settings: {
+								        slidesToShow: 2,
+								        slidesToScroll: 1
+								      }
+								    },
+                    {
+                    breakpoint: 600,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+								  ]
+								});
+							});
+						</script>
+					[%/site_value%]
+					<div class="wrapper-galley-heading">
+			            <h3 class="galley-heading">
+			            	<a href="[%url id:'390' /%]">Galley Gossip</a>
+			                <a href="[%url id:'390' /%]">
+			                	<span class="custom-slick-arrow">View All Articles<i class="fas fa-chevron-right"></i></span>
+			                </a>
+			            </h3>
+		          	</div>
+					<div class="row wrapper-gallery-gossip">
+						[%/param%]
+						[%param *footer%]
+					</div>
+					[%/param%]
+				[%/thumb_list%]
+			</div>
+		</div>
+	</div>
+</div>
+[%thumb_list type:'content' content_type:'testimonials' limit:'20'  template:'testimonials-thumb' filter_category:''%]
+		[%param *header%]
+		<div class="wrapper-testimonials">
+			<div class="container">
+				<div class="row">
+					[%/param%]
+					[%param *footer%]
+				</div>
+			</div>
+		</div>
+		[%/param%]
+	[%/thumb_list%]	
+[%site_value id:'footer_javascript'%]
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.wrapper-testimonials .row').slick({
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				dots: false,
+				arrows: true,
+				adaptiveHeight: true,
+				responsive: [
+				    {
+				      breakpoint: 991,
+				      settings: {
+				        slidesToShow: 2,
+				        slidesToScroll: 1
+				      }
+				    },
+				    {
+				      breakpoint: 768,
+				      settings: {
+				        slidesToShow: 1,
+				        slidesToScroll: 1
+				      }
+				    },
+			        {
+				        breakpoint: 600,
+				        settings: {
+				          slidesToShow: 1,
+				          slidesToScroll: 1
+				        }
+				    }
+			    ]
+			});
+		});
+	</script>
+[%/site_value%]
+<div class="container">
+	<div class="row">

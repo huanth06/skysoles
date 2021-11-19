@@ -1,0 +1,191 @@
+</div></div>
+<div class="support-hub-page  page-custom">
+	<div class="bg-white">
+			<div class="container">
+		<div class="row">
+			<div class="main-title">
+				<h1>
+					[@content_name@]
+				</h1>
+				<p>
+					[@content_short_description1@]
+				</p>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="relative">
+
+		<div data-parallax="scroll" style="background-image: url([%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]);" data-image-src="[%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]" class="paralax-bg pull-right full-width main-image">
+		</div>
+
+
+		<!-- <img src="[%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]" class="pull-right main-image full-width"/>
+			<div class="overplay"></div> -->
+		</div>
+		<div class="container">
+			<div class="row">
+
+				<div class="first-description">
+					[@content_description1@]
+				</div>	
+
+
+				<div class="support-tabs">
+					[%thumb_list type:'content' content_type:'' sortby:'sortorder2,name' show_level:'2'  limit:'20' %]
+					[%param *header%]
+					<div>
+						<div class="support-list">
+							[%/param%]
+							[%param *body%]	
+
+							<div class="item support-list-title">
+								<div class="support-list-image">
+									<img src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%]" alt="[@name@]" />
+									<h3>[@name@]</h3>
+								</div>
+								<i class="fas fa-angle-down" style="display: inline-block;"></i>
+								<div class="arrow hide" >
+
+								</div>
+							</div>
+							<div class="item support-list-menu hide">
+
+								[% if [@name@] like 'FAQs' %]
+								[%thumb_list type:'content' content_type:'' sortby:'sortorder-desc' show_level:'3'  limit:'20' %]
+
+								[%param *header%]
+										<div class="panel-group products" id="accordion" role="tablist" aria-multiselectable="true">
+								[%/param%]
+								[%param *body%]
+							
+
+
+									<div class="panel panel-default inactive">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq-[@content_id@]">
+													[@name@]
+												</a>
+											</h4>
+										</div>
+										<div id="faq-[@content_id@]" class="panel-collapse collapse">
+											<div class="panel-body">
+												[@content_description1@]
+											</div>
+										</div>
+									</div>
+
+
+
+								
+
+								[%/param%]
+								[%param *footer%]
+								</div>
+								[%/param%]
+								[%/thumb_list%]
+
+
+
+								[%else%]
+
+
+								[@content_description1@]
+								[%/if%]
+
+							</div>
+
+							[%/param%]
+							[%param *footer%]
+						</div>
+					</div>
+					[%/param%]
+					[%/thumb_list%]
+				</div>
+
+				[%advert type:'text' limit:'1' ad_group:'cta block'  allow_duplicate:'1' %]
+				[%param *header%]
+				<div class="wrapper-homepage-add">
+					<div class="container">
+						[%/param%]
+						[%param *body%]
+						<div class="row align-items-center">
+							<div class="col-xs-12  col-sm-6 col-md-6">
+								[%if [@headline@]%]
+								<h3>
+									[@headline@] 
+								</h3>
+								[%/if%]
+
+								<p>
+									[%if [@description@]%][@description@][%/if%]
+								</p>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+								<button class="btn-secondary-on-white">
+									<a href="[@url@]">
+										[@linktext@]
+									</a>
+								</button>
+							</div>
+						</div>
+						[%/param%]
+						[%param *footer%]
+					</div>
+				</div>
+				[%/advert%]
+			</div>
+		</div>
+
+		[%advert type:'text' limit:'1' ad_group:'image text block'  %]
+		[%param *header%]
+
+		<div class="wrapper-homepage-advert bg-gray">
+			<div class="container">
+				[%/param%]
+				[%param *body%]
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="left-banner" data-href="[@url@]">
+							<div class="overplay"></div>
+							<img src="[%asset_url type:'adw' id:'[@ad_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END asset_url%]" alt="[@headline@]">
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<div class="adverst-content">
+							<h3>
+								[@headline@]
+							</h3>
+							<div class="content">
+								<p>[@description@]</p>
+							</div>
+							<div class="btn-wrapper">
+								<button class="btn-secondary-on-gray">
+									<a href="[@url@]">
+										[@linktext@]
+									</a>
+								</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				[%/param%]
+				[%param *footer %]
+			</div>
+		</div>
+		[%site_value id:'footer_javascript'%]
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".left-banner").click(function(){
+					var url = $(this).attr('data-href');
+					window.location = url;
+				})
+			});
+		</script>
+		[%/site_value%]
+		[%/param%]
+
+		[%/advert%]
+	</div>

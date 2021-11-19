@@ -1,0 +1,126 @@
+<!-- [%load_template file:'cms/includes/sidebar.template.html'/%] -->
+</div></div>
+
+<div class="wrapper-prod-bg footerwear_collections">
+	<div class="first-content paralax-bg content" style="background-image: url([%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%])" data-parallax="scroll" data-image-src="[%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]">
+		<div class="overplay"></div>	
+		<div class="container" >
+			<div class="row">
+				<div class="main-title text-left">
+					<div class="content-detail">
+						<h1>
+							[@content_name@]
+						</h1>
+						<div class="short">
+							<p>[@content_short_description1@]</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="support-tabs">
+		<div class="container">
+			<div class="row">
+				[%thumb_list type:'content' content_type:'' sortby:'sortorder2,name'  limit:'20' %]
+				[%param *header%]
+				
+				<div class="support-list">
+					[%/param%]
+					[%param *body%]	
+					<div class="item support-list-title">
+						<div class="support-list-image">
+							<img src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%]" alt="[@name@]" />
+							<h3>[@name@]</h3>
+						</div>
+						<i class="fas fa-angle-down" style="display: inline-block;"></i>
+						<div class="arrow hide" >
+							
+						</div>
+					</div>
+					<div class="item support-list-menu hide">
+						[@content_description1@]
+						
+					</div>
+					[%/param%]
+					[%param *footer%]
+				</div>
+				
+				[%/param%]
+				[%/thumb_list%]
+			</div>
+		</div>
+	</div>
+
+	<div class="description">
+		
+		<div class="container">
+			<div class="row">
+				<div class="description-1 text-center">
+					[@content_description1@]
+				</div>
+				<div class="description-2 text-center">
+					[@content_description2@]
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+	<div class="cta_block">
+
+		<div class="container">
+			<div class="row">
+
+				[%advert type:'text' limit:'1' ad_group:'cta block'  allow_duplicate:'1' %]
+				[%param *header%]
+				<div class="wrapper-homepage-add">
+					<div class="container">
+						[%/param%]
+						[%param *body%]
+						<div class="row align-items-center">
+							<div class="col-xs-12  col-sm-6 col-md-6">
+								[%if [@headline@]%]
+								<h3>
+									[@headline@] 
+								</h3>
+								[%/if%]
+
+								<p>
+									[%if [@description@]%][@description@][%/if%]
+								</p>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+								<button class="btn-secondary-on-white">
+									<a href="[@url@]">
+										[@linktext@]
+									</a>
+								</button>
+							</div>
+						</div>
+						[%/param%]
+						[%param *footer%]
+					</div>
+				</div>
+				[%/advert%]
+			</div>
+		</div>
+	</div>
+
+	<div class="cor_footer_buttons">
+
+		<div class="container">
+			<div class="row">
+				[%content_zone id:'cor_footer_buttons'%][%end content_zone%]
+			</div>
+		</div>
+	</div>
+
+
+
+
+</div>
+<div><div>

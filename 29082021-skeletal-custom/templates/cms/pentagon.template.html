@@ -1,0 +1,62 @@
+<!-- [%load_template file:'cms/includes/sidebar.template.html'/%] -->
+</div></div>
+<div class="wrapper-prod-bg pentagon-page">
+	<div class="pentagon-menu">
+		<h3>
+			Jump to section
+			<i class="fas fa-angle-down js-menu-account visible-xs visible-sm"></i>
+		</h3>	
+		<ul>
+			[%menu id:'pentagon_menu'%]
+			[%param *level_1%]
+			[% set  [@count@]  %]
+			[%calc  [@count@] + 1 /%]
+			[%/set%]
+			<li index="[@count@]">[@name@]</li>
+			[%/param%]
+			[%/menu%]
+
+		</ul>
+	</div>
+</ul>
+	<div id="section-pentagon-1" class=" section-pentagon first-content paralax-bg content" style="background-image: url([%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%])" data-parallax="scroll" data-image-src="[%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]">
+		<div class="overplay"></div>	
+		<div class="container" >
+			<div class="row">
+				<div class="main-title text-left">
+					[@content_description2@]
+					<div class="content-detail">
+						<div class="icon">
+							<img src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%]" alt="" width="116px">
+						</div>
+						<h2>
+							[@content_name@]
+						</h2>
+						<div class="short">
+							<p>[@content_short_description1@]</p>
+						</div>
+						[@content_description1@]
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pentagon-wrap">
+		[%thumb_list type:'content' content_type:'' template:'pentagon' sortby:'sortorder-desc'  limit:'20' %]
+		[%param *header%]
+		<ul class="pentagon-list">
+			[%/param%]
+			[%param *footer%]
+		</ul>
+		[%/param%]
+		[%/thumb_list%]
+	</div>
+	<div class="cor_footer_buttons">
+		<div class="container">
+			<div class="row">
+				[%content_zone id:'cor_footer_buttons'%][%end content_zone%]
+			</div>
+		</div>
+	</div>
+</div>
+<div><div>

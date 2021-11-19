@@ -1,0 +1,771 @@
+[%site_value id:'footer_javascript'%]
+<script type="text/javascript" language="javascript">
+	function parseDate(str) {
+		var mdy = str.split('-');
+		return new Date(mdy[0], mdy[1], mdy[2]);
+	}
+	$(document).ready(function() {
+
+		$('.colour-variation ._itmspec_lnk span').click(function(){
+			$temp = $(this).text();
+			$('.result-color').text($temp);
+
+		});
+		$('.main-image').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: false,
+			asNavFor: '.wrapper-prod-bg .row.alt-images'
+		});
+
+		$('.wrapper-prod-bg .row.alt-images').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			asNavFor: '.main-image',
+			dots: false,
+			centerPadding: '5px',
+			focusOnSelect: true
+		});
+		$.product_variationInit({
+			'loadtmplates': ['_buying_options', '_images','_header'],
+			'fns' : {
+				'onLoad' : function () {
+					$('.addtocart').button("loading");
+					$('.colour-variation ._itmspec_lnk span').click(function(){
+						$temp = $(this).text();
+						$('.result-color').text($temp);
+
+					});
+
+					if($('.size-variation ._itmspec_selected.border-red').length){
+						$('.out-of-stock').removeClass('hide');
+					}else{
+						$('.out-of-stock').addClass('hide');
+					}
+					if($('.size-variation ._itmspec_selected.border-yellow').length){
+						$('.low-stock-des').removeClass('hide');
+					}else{
+						$('.low-stock-des').addClass('hide');
+					}
+				},
+				'onReady' : function () {
+					$('.addtocart').button("reset");
+					$('.zoom').zoom();
+					$('.colour-variation ._itmspec_lnk span').click(function(){
+						$temp = $(this).text();
+						$('.result-color').text($temp);
+
+					});
+					$('.main-image').slick({
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						arrows: false,
+						fade: false,
+						asNavFor: '.wrapper-prod-bg .row.alt-images'
+					});
+
+					$('.wrapper-prod-bg .row.alt-images').slick({
+						slidesToShow: 5,
+						slidesToScroll: 1,
+						asNavFor: '.main-image',
+						dots: false,
+						centerPadding: '5px',
+						focusOnSelect: true
+					});
+					var d = new Date();
+
+					var month = d.getMonth()+1;
+					var day = d.getDate();
+
+					var current_date = d.getFullYear() + '-' +
+					(month<10 ? '0' : '') + month + '-' +
+					(day<10 ? '0' : '') + day;
+					var endDate_str = $("#date-end").val();
+					var startDate = parseDate(current_date).getTime();
+					var endDate = parseDate(endDate_str).getTime();
+					if (startDate <= endDate) {
+						$("#backoder").hide();
+						$("#preorder").show();
+						$("#alt-backorder").hide();
+						$("#alt-preorder").show();
+					} else {
+						$("#backoder").show();
+						$("#preorder").hide();
+						$("#alt-backorder").show();
+						$("#alt-preorder").hide();
+					}
+					var currency = $('#selected_currency_3').text();
+					dc_select_currency(currency);
+
+					if($('.size-variation ._itmspec_selected.border-red').length){
+						$('.out-of-stock').removeClass('hide');
+					}else{
+						$('.out-of-stock').addClass('hide');
+					}
+					if($('.size-variation ._itmspec_selected.border-yellow').length){
+						$('.low-stock-des').removeClass('hide');
+					}else{
+						$('.low-stock-des').addClass('hide');
+					}
+					if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) 
+					{
+						$('#n_product .theQty').addClass('check-safari'); 
+					}
+				},
+			}
+		});
+		[%if [@has_components@]%]
+		$.kit_variationInit({});
+		[%/if%]
+	});
+</script>
+<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/zoom/1.4/jquery.zoom-min.js"></script>
+<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/jcountdown/1.4/jquery.jcountdown.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.zoom').zoom();
+
+		$("#sale-end").countdown({
+			date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]"
+		});
+
+		$('#accordion > .panel-default').on('show.bs.collapse', function (e) {
+			$(this).toggleClass("active inactive");
+			$(this).find('.fa').toggleClass("fa-chevron-circle-down fa-chevron-circle-up");
+		});
+
+		$('#accordion > .panel-default').on('hide.bs.collapse', function (e) {
+			$(this).toggleClass("active inactive");
+			$(this).find('.fa').toggleClass("fa-chevron-circle-up fa-chevron-circle-down");
+		});
+
+		$('.wrapper-reviews .wrapper-reviews-content > .container > .row').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: false,
+			autoplaySpeed: 2000,
+		});
+
+		$(".btn-view-prod").click(function(e){
+			e.preventDefault();
+			$('html, body').animate({
+				scrollTop: $(".wrapper-product-title").offset().top
+			}, 2000);
+		});
+		//$(".wrapper-whats-in-the-box .row > div:first-child").next().andSelf().wrapAll('<div class="box-content-left" />');
+		function imageLoaded() {
+			if ($(window).width() <= 500) {
+				var totalHeight = $(".wrapper-homepage-banner > .homepage-banner > img").height() + 80;
+				$(".wrapper-homepage-banner > .homepage-banner > img").height(totalHeight);
+			}
+		}
+		$('.wrapper-homepage-banner > .homepage-banner > img').each(function() {
+			if( this.complete ) {
+				imageLoaded.call( this );
+			} else {
+				$(this).one('load', imageLoaded);
+			}
+		});
+		if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) 
+		{
+			$('#n_product .theQty').addClass('check-safari'); 
+		}
+
+	});
+</script>
+[%/site_value%]
+[%cache type:'display' id:'[@inventory_id@]'%]
+</div>
+</div>
+
+<style>
+
+</style>
+<div class="wrapper-prod-bg" >
+
+	<div class="container container-custom">
+		<div class="row">
+			<div class="col-xs-12 pad_lr_0">
+
+				<div class="row row-flex">
+					<div class="col-xs-12 col-sm-12 col-md-8 detail-content-left">
+						<div class="col-xs-12 col-sm-12 col-md-11 col-md-offset-1">
+							[%breadcrumb%]
+							[%param *header%]
+							<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+								<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+									<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+								</li>
+								[%/param%]
+								[%param *body%]
+								<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+									<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+								</li>
+								[%/param%]
+								[%param *footer%]
+							</ul>
+							[%/param%]
+							[%/breadcrumb%]
+
+							<div class="info-brand">
+								[%brand id:'[@brand@]'%]
+								[%param *body%]
+								[%set [@brand_thumb@] %][%asset_url type:'content' id:'[@content_id@]' thumb:'thumb' /%][%/set%]
+								[%if [@brand_thumb@] %]
+								<div class="thumb-brand">
+
+									<a title="[@brand@]" href="[%url type:'brand' id:'[@brand@]'/%]"><img class="img-responsive" src="[@brand_thumb@]"></a>
+
+								</div>
+								[%/if%]
+								[%/param%]
+								[%/brand%]
+								<div class="title-product-sp visible-xs visible-sm">
+									[@name@]
+								</div>
+							</div>
+						</div>
+
+						<div class="wrapper-image col-xs-12  col-md-10 col-md-offset-1  col-lg-7-custom col-lg-offset-3-custom">
+
+
+							[%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+						</div>
+
+					</div>
+					<div class="col-xs-12  col-sm-12 col-md-4 detail-content-right">
+						<div class="wrap-right">
+
+							<div class="row">
+								<div class="wrapper-product-title col-xs-12">
+									<h1 itemprop="name" class="product-name">[@name@]</h1>
+									[%if [@subtitle@]%]
+									<h3 class="subtitle">[@subtitle@]</h3>
+									[%/if%]
+								</div>
+							</div>
+							[%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+							<form autocomplete="off">
+								[%list_item_variations id:'[@current_sku@]'%]
+								[%param header%]
+								<input type="hidden" id="_itmspec_sku" value="[%nohtml%][@SKU@][%/nohtml%]">
+								<hr>
+								<div class="row">
+									[%/param%]
+									[%param *variation_header%]
+									<div class="_itmspec_listopt col-xs-12 col-md-12" ref="[@specific_id@]">
+										<div class="variation-name [%if [@specific_name@] like 'Size'%]flex[%/if%]">
+
+											[%if [@specific_name@] like 'Size'%]
+											Select your size
+											[% elseif [@specific_name@] like 'Colour' %]
+											Select colour
+											[% else %]
+
+											Select [@specific_name@]
+											[%/if%]
+
+											[%if [@specific_name@] like 'Size'%]
+											<div class="size-guide"><a href="javascript:void(0);">Size guide</a></div>
+											[%/if%]
+										</div>
+										[%if [@specific_name@] like 'Size'%]
+
+										<div class="out-of-stock hide">
+											[%content_zone id:'prod_out_of_stock'%][%end content_zone%]
+										</div>
+										<div class="low-stock-des hide">
+											[%content_zone id:'prod_low_stock_des'%][%end content_zone%]
+										</div>
+										[%/if%]
+										<div class="specific [%if [@specific_name@] like 'Size'%]size-variation[% elseif  [@specific_name@] like 'Colour' %] colour-variation[% else %] default-variation [%/if%]">
+											<input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+											[%/param%]
+											[%param *variation_body%]
+											<div class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+												[%if [@specific_name@] like 'Colour'%]
+												<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+
+
+													<input id="result-color" type="hidden" value="[@value_name@]" name="" />
+													<span style="[%if [@value_image@]%]background-image: url([@value_image@])[%/if%][%if [@value_swatch@]%]background-color: [@value_swatch@][%/if%]">
+														[%if [@value_image@]%]
+														<img src="[@value_image@]" alt="[@value_name@]" />
+														[%/if%]
+														[%if [@value_name@]%]
+														[@value_name@]
+														[%ELSE%]
+														[@value_description@]
+														[%/if%]
+													</span>
+
+												</a>
+												<span class="txt">[%if [@value_name@]%]
+													[@value_name@]
+													[%ELSE%]
+													[@value_description@]
+												[%/if%]</span>
+												<span class="result-color"></span>
+												[%else%]
+												[% set [@prod_low_stock_threshold@] %]
+												[%content_zone id:'prod_low_stock_threshold'%][%end content_zone%]
+												[%/set%]
+												<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected [%/if%]   [%if [@variation_qty@] <= 0 %] border-red [%elseif [@variation_qty@] == [@prod_low_stock_threshold@] %] border-yellow [%else%] border-normal [%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]" --[@variation_store_quantity@]>
+													[%if [@value_image@]%]
+													<img src="[@value_image@]" alt="[@value_name@]" />
+													[%/if%]
+													[%if [@value_name@]%]
+													[@value_name@]
+													[%ELSE%]
+													[@value_description@]
+													[%/if%]
+												</a>
+												[%/if%]
+											</div>
+											[%/param%]
+
+											
+											[%param *variation_body_radio%]
+												<div class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+												[%if [@specific_name@] like 'Colour'%]
+												<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+													<input id="result-color" type="hidden" value="[@value_name@]" name="" />
+													<span style="[%if [@value_image@]%]background-image: url([@value_image@])[%/if%][%if [@value_swatch@]%]background-color: [@value_swatch@][%/if%]">
+														[%if [@value_image@]%]
+														<img src="[@value_image@]" alt="[@value_name@]" />
+														[%/if%]
+														[%if [@value_name@]%]
+														[@value_name@]
+														[%ELSE%]
+														[@value_description@]
+														[%/if%]
+													</span>
+
+												</a>
+												<span class="txt">[%if [@value_name@]%]
+													[@value_name@]
+													[%ELSE%]
+													[@value_description@]
+												[%/if%]</span>
+												<span class="result-color"></span>
+												[%else%]
+												<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+													[%if [@value_image@]%]
+													<img src="[@value_image@]" alt="[@value_name@]" />
+													[%/if%]
+													[%if [@value_name@]%]
+													[@value_name@]
+													[%ELSE%]
+													[@value_description@]
+													[%/if%]
+												</a>
+												[%/if%] 
+											</div>
+											[%/param%]
+											[%param *variation_body_image%]
+											<span class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+												<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+													[%if [@value_image@]%]
+													<img src="[@value_image@]" alt="[@value_name@]">
+													[%else%]
+													[@value_name@]
+													[%/if%]
+												</a>
+											</span>
+											[%/param%]
+
+
+											[%PARAM *variation_header_select%]
+				                                    <div class="_itmspec_listopt col-12 col-md-6" ref="[@specific_id@]">
+				                                        <div class="variation-name">
+				                                            <strong>[@specific_name@]</strong>
+				                                        </div>
+				                                            <div class="specific">
+				                                                <input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+				                                                <div class="n-wrapper-form-control">
+				                                                    <span class="_itmspec_optpl" ref="[@specific_id@]">
+				                                                        <select class="_itmspec_opt form-control" ref="[@specific_id@]">
+				                            [%/PARAM%]
+				                            [%PARAM *variation_body_select%]
+				                                                            <option value="[@value_id@]" [%if [@selected@]%]selected[%/if%]>[@value_name@]</option>
+				                            [%/PARAM%]
+				                            [%PARAM *variation_footer_select%]
+				                                                        </select>
+				                                                    </span>
+				                                                </div>
+				                                            </div>
+				                                    </div>
+				                            [%/PARAM%]
+				                            [%PARAM footer%]
+				                                </div>
+				                            [%/PARAM%]
+
+
+
+											[%param *variation_footer%]
+
+										</div>
+									</div>
+									[%/param%]
+									[%param footer%]
+								</div>
+								[%/param%]
+								[%/list_item_variations%]
+								[%if ![@has_variation@]%]
+								[%load_template file:"products/includes/child_products.template.html"/%]
+								[%/if%]
+							</form>
+							[%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
+							[%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+							[%/if%]
+
+							[%if [@has_components@]%]
+							<hr>
+							<h2>Customise Your Purchase</h2>
+							[%load_template file:"products/includes/components.template.html"/%]
+							[%/if%]
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						[%discount_products id:'[@SKU@]' template:'' show_all:'1' limit:'100'%]
+						[%param header%]
+						<div class="alert alert-success">
+							<h3>BONUS ITEMS! <small>Buy [@name@] Today &amp; Receive These For FREE!</small></h3>
+							<div class="row">
+								[%/param%]
+								[%param *body%]
+								<div class="col-sm-3">
+									<div class="thumbnail">
+										<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image">
+											<img src="[@thumb@]" alt="[@name@]">
+										</a>
+										<div class="caption">
+											<h3 class="title">
+												<a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a>
+											</h3>
+											<div class="text-success"><strong>FREE</strong> With This Item!</div>
+										</div>
+									</div>
+								</div>
+								[%/param%]
+								[%param footer%]
+							</div>
+						</div>
+						[%/param%]
+						[%/discount_products%]
+						[%free_gifts id:'[@SKU@]'%]
+						[%param *header%]
+						<div class="alert alert-success">
+							<h3>FREEBIES! <small>Buy [@name@] Today &amp; Choose From One Of These FREE Gifts!</small></h3>
+							<div class="row">
+								[%/param%]
+								[%param *body%]
+								<div class="col-sm-3">
+									<div class="thumbnail">
+										<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image">
+											<img src="[@thumb@]" alt="[@name@]">
+										</a>
+										<div class="caption">
+											<h3 class="title">
+												<a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a>
+											</h3>
+											<div class="text-success"><strong>FREE</strong> With This Item!</div>
+										</div>
+									</div>
+								</div>
+								[%/param%]
+								[%param *footer%]
+							</div>
+						</div>
+						[%/param%]
+						[%/free_gifts%]
+						[%tracking_code type:'ProductDescription' /%]
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="content">
+
+	<div class="container">
+		<div class="row">
+			<div class="panel-group products" id="accordion" role="tablist" aria-multiselectable="true">
+				[%if [@features@]%]
+				<div class="productFeatures-content">
+					<div class="heading">
+						<h4 class="text-center panel-title">
+
+							<span>Features</span>
+
+						</h4>
+					</div>
+
+					[%if [@misc7@]%]
+					<div class="wrapper-four">
+
+						[@misc7@]
+
+					</div>
+					[%/if%]
+
+					<div id="productFeatures">
+						<div class="panel-body">
+							[@features@]
+						</div>
+					</div>
+				</div>
+				[%/if%]
+				[%if [@misc1@]%]
+				<div class="panel panel-default inactive">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#productLeathers">
+								Our Leathers
+							</a>
+						</h4>
+					</div>
+					<div id="productLeathers" class="panel-collapse collapse">
+						<div class="panel-body">
+							[@misc1@]
+						</div>
+					</div>
+				</div>
+				[%/if%]
+				[%IF [@misc2@]%]
+				<div class="panel panel-default inactive">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#productDelivery">
+								Delivery
+							</a>
+						</h4>
+					</div>
+					<div id="productDelivery" class="panel-collapse collapse">
+						<div class="panel-body">
+							[@misc2@]
+						</div>
+					</div>
+				</div>
+				[%/if%]
+				[%IF [@misc3@]%]
+				[%IF [@misc8@] %]
+				<div class="panel panel-default js-size inactive">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#productSize">
+								Size Guide
+							</a>
+						</h4>
+					</div>
+					<div id="productSize" class="panel-collapse collapse">
+						<div class="panel-body">
+		                            <!--[%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
+										[%PARAM *brochure%]
+										[%content_zone id:'size_guide'%][%end content_zone%]
+										[%END PARAM%]
+										[%END THUMBNAILS%]-->
+										[@misc8@]
+									</div>
+								</div>
+							</div>
+							[%/IF%]
+							[%/if%]
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			[%THUMBNAILS id:'[@SKU@]'%]
+			[%PARAM *body%]
+			[%if [@type@] eq 'alt_9' %]
+			[% set [@img_box@] %] [%ASSET_URL type:'inventory' id:'[@inventory_id@]' thumb:'alt_9' default:'no_image'  /%] [% /set %]
+			[%if [@misc9@] or  [@img_box@] ne 'no_image' %]
+			<div class="what-in-box text-center">
+				<div class="container">
+					<div class="row">
+						<div class="title">
+							<h4>What’s in the box?</h4>
+						</div>
+						<div class="text text-center">
+							[@misc9@]
+						</div>
+						<div class="banner">
+							<img src="[%ASSET_URL type:'inventory' id:'[@inventory_id@]' thumb:'alt_9' /%]" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			[%/if%]
+			[%/if%]
+			[%END PARAM%]
+			[%END THUMBNAILS%]
+
+
+			<!-- [%if [@misc7@]%]
+			<div class="wrapper-four">
+				<div class="container">
+					[@misc7@]
+				</div>
+			</div>
+			[%/if%]
+		-->
+
+		[%if [@reviews@] > 0%]
+
+
+
+		<div class="wrapper-reviews">
+			<div class="container">
+				<div class="row">
+					<div class="card-header py-1 px-2" id="headingReviews">
+						[%content_zone id:'testimonial_title_main'%][%end content_zone%]
+					</div>
+					<div id="accordionReviews" aria-labelledby="headingReviews">
+						<div class="card-body js-accordionReviews">
+							[%thumb_list type:'product_reviews' limit:'5'%]
+							[%param filter_1%][@SKU@][%/param%]
+							[%param *body%]
+							<div itemprop="review" itemscope itemtype="http://schema.org/Review">
+								<meta itemprop="itemReviewed" content="[@name@]">
+								<meta itemprop="image" content="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]">
+								<blockquote>
+									<h4 itemprop="name">[%nohtml%][@title@][%/nohtml%]</h4>
+									<div>
+										<strong>
+											[%if [@reviewname@]%]
+											By: <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">[%nohtml%][@reviewname@][%/nohtml%]</span></span> on
+											[%/if%]
+											<meta itemprop="datePublished" content="[%FORMAT type:'date'%][@insert_date@][%/FORMAT%]">[%FORMAT type:'date'%][@insert_date@][%/FORMAT%]
+										</strong>
+									</div>
+									<span itemprop="description">[%nohtml%][@review@][%/nohtml%]</span><br />
+									<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+										<meta itemprop="worstRating" content = "1">
+										<meta itemprop="ratingValue" content = "[@score@]">
+										<meta itemprop="bestRating" content = "5">
+									</div>
+
+									<div class="star">
+									[%set [@data:ratings-count@] = 1 /%]
+									[%while [@data:ratings-count@] <= [@data:score@]%]
+									[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+									<svg id="Component_100_17" data-name="Component 100 – 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+										<defs>
+											<clipPath id="clip-path">
+												<rect id="Rectangle_208" data-name="Rectangle 208" width="18" height="18" fill="rgba(153,153,153,0)" opacity="0"/>
+											</clipPath>
+										</defs>
+										<g id="Mask_Group_25" data-name="Mask Group 25" clip-path="url(#clip-path)">
+											<path id="Path_1363" data-name="Path 1363" d="M10.25,14.6l5.1,3.077L14,11.875l4.5-3.9-5.932-.5L10.25,2,7.932,7.47,2,7.973l4.5,3.9-1.353,5.8Z" transform="translate(-1.25 -1.25)" fill="#ffce00"/>
+										</g>
+									</svg>
+									[%/while%]
+									[%while [@data:ratings-count@] <= 5%]
+									[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+									<svg id="Component_100_17" data-name="Component 100 – 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+										<defs>
+											<clipPath id="clip-path">
+												<rect id="Rectangle_208" data-name="Rectangle 208" width="18" height="18" fill="rgba(153,153,153,0)" opacity="0"/>
+											</clipPath>
+										</defs>
+										<g id="Mask_Group_25" data-name="Mask Group 25" clip-path="url(#clip-path)">
+											<path id="Path_1363" data-name="Path 1363" d="M10.25,14.6l5.1,3.077L14,11.875l4.5-3.9-5.932-.5L10.25,2,7.932,7.47,2,7.973l4.5,3.9-1.353,5.8Z" transform="translate(-1.25 -1.25)" fill="#DDDDDD"/>
+										</g>
+									</svg>
+									[%/while%]
+									<span>([@score@])</span>
+
+									</div>
+									[%if [@review_response@]%]
+									<br /><br />
+									<blockquote>
+										<span class="review_response text-muted"><strong><i>[@config:website_name@] Response</i></strong><br /> [%nohtml%][@review_response@][%/nohtml%]</span>
+									</blockquote>
+									[%/if%]
+								</blockquote>
+							</div>
+							[%/param%]
+							[%param *ifempty%]
+							[%/param%]
+							[%/thumb_list%]
+							
+						</div>
+					</div>
+
+					[%if [@reviews@] > 0%]
+					<p class="btn-reviews" >
+						<button class="btn-secondary-on-white">
+							<a class="" href="[%URL page:'account' type:'write_review' qs:'item=[@SKU@]'%][%/URL%]"><i class="far fa-edit"></i> Write a product review</a>
+						</button>
+
+					</p>
+					[%else%]
+					<h4>Be The First To Review This Product!</h4>
+					<p>Help other [@config:company_name@] users shop smarter by writing reviews for products you have purchased.</p>
+					<p>
+						<button class="btn-secondary-on-white">
+
+							<a  href="[%URL page:'account' type:'write_review' qs:'item=[@SKU@]'%][%/URL%]"><i class="far fa-edit"></i> Write a product review</a>
+						</button>
+
+					</p>
+					[%/if%]
+				</div>
+			</div>
+		</div>
+
+
+
+		[% else %]
+
+
+		[%thumb_list type:'content' content_type:'testimonials' limit:'20'  filter_category:''%]
+		[%param *header%]
+		<div class="wrapper-testimonials">
+			<div class="title text-center">
+				[%content_zone id:'testimonial_title_main'%][%end content_zone%]
+			</div>
+			<div class="container">
+				<div class="row">
+					[%/param%]
+					[%param *body%]
+
+					<div class="col-xs-12 col-sm-6 col-md-4 wrap-testi-block">
+						<div class="testimonials">
+							<div class="description"><p>[@content_short_description1@]</p>
+							</div>
+							<input type="hidden" class="test_date_posted" value="[@date_posted@]" name="" />
+							<div class="author">
+								<h5>- [%if [@date_posted@] ne '0000-00-00 00:00:00' %][%FORMAT type:'date' format:'#d #k #Y'%][@date_posted@][%END FORMAT%], [%/if%][@name@]</h5>
+							</div>
+						</div>
+						<div class="btn-view">
+							<button class="btn-secondary-on-white">
+
+								<a  href="[%URL page:'account' type:'write_review' qs:'item=[@SKU@]'%][%/URL%]"><i class="far fa-edit"></i> Write a product review</a>
+							</button>
+						</div>
+
+					</div>
+
+
+					[%/param%]
+					[%param *footer%]
+				</div>
+			</div>
+		</div>
+		[%/param%]
+		[%/thumb_list%]	
+
+
+		[%/if%]
+		<div class="container">
+			<div class="row">

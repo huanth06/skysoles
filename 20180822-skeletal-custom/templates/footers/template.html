@@ -1,0 +1,292 @@
+	</div>
+</div>
+[%if [@config:show_newsletter_subscribe@]%]
+<div class="wrapper-newsletter">
+	<div class="container">
+		<div class="row">
+            <div class="col-xs-12">
+            	<!-- Begin MailChimp Signup Form -->
+
+                <div id="mc_embed_signup">
+
+                <form method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]" aria-label="Newsletter subscribe form">
+				<input type="hidden" name="list_id" value="1">
+			    <input type="hidden" name="opt_in" value="y">
+			    <input name="inp-submit" type="hidden" value="y" />
+			    <input name="inp-opt_in" type="hidden" value="y" />
+                <div id="mc_embed_signup_scroll">
+
+                <h2>Being in the know feels great</h2>
+
+                <div class="mc-field-group">
+
+	                <label for="mce-EMAIL" class="hidden">Sign up here for news and updates</label>
+					<input name="inp-email" class="form-control" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required aria-label="Email Address"/>
+
+	                <div id="mce-responses" class="clear">
+
+		                <div class="response" id="mce-error-response" style="display:none"></div>
+
+		                <div class="response" id="mce-success-response" style="display:none"></div>
+
+	                </div>
+	                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+	                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6735df13e0351d2833c907451_e7b73763ff" tabindex="-1" value=""></div>
+
+	                <div class="subscribe-btn">
+	                	<input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-block">
+	                </div>
+                </div>
+                <div class="checkbox">
+			        <label>
+			            <input type="checkbox" value="y" class="terms_box" required/>
+			            I have read and agree to
+			            <a href="#" data-toggle="modal" data-target="#termsModal">Terms & Conditions</a> and
+			            <a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a>.
+			        </label>
+			    </div>
+                </div>
+
+                </form>
+                </div>
+
+                <!--End mc_embed_signup-->
+            </div>
+		</div>
+	</div>
+</div>
+[%/if%]
+<div class="wrapper-footer">
+   <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10">
+            <div class="row">
+               [%menu id:'web_footer'%]
+					[%param *level_1%]
+						<div class="col-xs-6 col-sm-4">
+							<h4>[@name@]</h4>
+							<ul class="nav nav-pills nav-stacked">
+								[@next_level@]
+							</ul>
+						</div>
+					[%/param%]
+					[%param *level_2%]
+						<li><a href="[@url@]">[@name@]</a></li>
+					[%/param%]
+				[%/menu%]
+            </div>
+         </div>
+         <div class="col-xs-12 col-sm-2">
+            <h4>Contact Info</h4>
+            <p class="email"><i class="fa fa-envelope"></i> <a href="mailto:[@CONFIG:COMPANY_EMAIL@]">[@CONFIG:COMPANY_EMAIL@]</a></p>
+            <p class="phone"><i class="fas fa-phone"></i> <a href="tel:[%format type:'text' trim:'a'%][@CONFIG:COMPANY_PHONE@][%/format%]">+ [@CONFIG:COMPANY_PHONE@]</a></p>
+            <p class="abn"><i class="fas fa-info-circle"></i>ABN [@CONFIG:COMPANY_ABN@]</p>
+            <ul class="list-inline list-social" itemscope itemtype="http://schema.org/Organization">
+					<meta itemprop="url" content="[@config:home_url@]"/>
+					<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
+					<meta itemprop="name" content="[@config:company_name@]"/>
+					[%if [@config:facebook_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank"><i class="fa fa-facebook-square text-facebook"></i></a></li>
+					[%/if%]
+					[%if [@config:twitter_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank"><i class="fa fa-twitter-square text-twitter"></i></a></li>
+					[%/if%]
+					[%if [@config:googleplus_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank"><i class="fa fa-google-plus-square text-google-plus"></i></a></li>
+					[%/if%]
+					[%if [@config:youtube_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank"><i class="fa fa-youtube-square text-youtube"></i></a></li>
+					[%/if%]
+					[%if [@config:instagram_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank"><i class="fa fa-instagram text-instagram"></i></a></li>
+					[%/if%]
+					[%if [@config:pinterest_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank"><i class="fa fa-pinterest-square text-pinterest"></i></a></li>
+					[%/if%]
+					[%if [@config:tumblr_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank"><i class="fa fa-tumblr-square text-tumblr"></i></a></li>
+					[%/if%]
+					[%if [@config:linkedin_account_id@]%]
+					<li><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank"><i class="fa fa-linkedin-square text-linkedin"></i></a></li>
+					[%/if%]
+				</ul>
+         </div>
+		<address>
+			<span>Copyright &copy; 2018 Sky Soles. </span>
+			E-commerce Software By <a href="http://www.neto.com.au" title="E-commerce Shopping Cart" target="_blank">Neto</a>
+		</address>
+      </div>
+   </div>
+</div>
+<div class="wrapper-address hidden">
+	<div class="container">
+		<div class="row">
+			<!--<div class="col-xs-12">
+				[%payment_methods ignore_balance:'1'%]
+					[%param header%]
+						<ul class="list-inline">
+					[%/param%]
+					[%param *body%]
+						[%if [@name@] like 'American Express'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-americanexpress"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'Visa'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-visa"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'MasterCard'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-mastercard"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'Discover'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-discover"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'Diners'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-diners"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'Cheque'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-cheque"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'Money Order'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-moneyorder"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'Direct Deposit' || [@name@] like 'Bank Deposit'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-directdeposit"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'bpay'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-bpay"></div>
+								</div>
+							</li>
+						[%/if%]
+						[%if [@name@] like 'paypal'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-paypal"></div>
+								</div>
+							</li>
+						[%/if%]
+					[%/param%]
+					[%param *footer%]
+						</ul>
+					[%/param%]
+				[%/payment_methods%]
+			</div>-->
+			<div class="col-xs-12">
+				<address>
+					<span>>Copyright &copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@]</span>
+					E-commerce Software By <a href="http://www.neto.com.au" title="E-commerce Shopping Cart" target="_blank">Neto</a>
+				</address>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="termsModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Terms & Conditions</h4>
+            </div>
+            <div class="modal-body">[%content_zone id:'terms'/%]</div>
+            <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="privacyModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Privacy Policy</h4>
+            </div>
+            <div class="modal-body">[%show_content id:'2'%][%param *body%][@content_description1@][%/param%][%/show_content%]</div>
+            <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+[%cdn_asset html:'1' type:'js' library:'jquery' version:'1.11.3'%]jquery.min.js[%/cdn_asset%]
+[%cdn_asset html:'1' type:'js' library:'fancybox' version:'2.1.5'%]jquery.fancybox.pack.js[%/cdn_asset%]
+[%NETO_JS html:'1' id:'main' /%]
+[%cdn_asset html:'1' type:'js' library:'bootstrap' version:'3.3.6'%]bootstrap.min.js[%/cdn_asset%]
+<script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%/ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/slick.min.js[%/ntheme_asset%]"></script>
+[%cdn_asset html:'1' type:'js' library:'jquery_ui' version:'1.11.1'%]js/jquery-ui-1.8.18.custom.min.js[%/cdn_asset%]
+
+<!-- Dynamic Converter -->
+<script language="JavaScript" type="text/javascript">
+	function dc_ld() { var dc_dlay = document.createElement("script"); dc_dlay.setAttribute('type', 'text/javascript'); dc_dlay.setAttribute('language', 'javascript'); dc_dlay.setAttribute('id', 'dcdlay'); dc_dlay.setAttribute("src", "http"+(window.location.protocol.indexOf("https:")==0?"s://converter":"://converter2")+".dynamicconverter.com/accounts/6/6743"+"."+"js"); document.getElementsByTagName("head")[0].appendChild(dc_dlay); } setTimeout('dc_ld()',10);
+</script>
+<script language="JavaScript" type="text/javascript">
+$(document).ready(function(){
+	var open = false;
+	$('#menu-mobile > li.dropdown-hover-subcat > a').click(function(){
+			open = !open;
+			if(open){
+				$(this).parent().addClass('open');
+				$(this).parents('.header-container').addClass('open');
+				$(this).children('.fa-angle-down').hide();
+				$(this).children('.fa-angle-up').show();
+				if($( window ).width() <= 767){
+					$(this).css('background-color', '#075197')
+					$(this).parent().addClass('active');
+				}
+			}
+			else {
+				$(this).parent().removeClass('open');
+				$(this).parents('.header-container').removeClass('open');
+				$(this).children('.fa-angle-up').hide();
+				$(this).children('.fa-angle-down').show();
+				if($( window ).width() <= 767){
+					$(this).css('background-color', 'transparent')
+					$(this).parent().removeClass('active');
+				}
+			}
+		}
+	);
+});
+</script>
+[%SITE_VALUE id:'footer_javascript' type:'load'/%]
+
+<!-- Analytics -->
+[%tracking_code type:'Visitor' /%]
+<div class="npopup" style=""> <a href="javascript:void(0);" class="npopup-btn-close"></a>
+	<div class="npopup-body">
+	</div>
+</div>
+<div class="nactivity"><i class="fa fa-spinner fa-spin fa-inverse fa-3x fa-fw"></i></div>
+</body>
+</html>

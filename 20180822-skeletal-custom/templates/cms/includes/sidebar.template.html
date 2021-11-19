@@ -1,0 +1,85 @@
+<div class="col-xs-12 col-sm-3" id="left-sidebar">
+	[%IF [@page_type@] eq 'category' and [@config:show_filters@]%]
+		<div class="panel panel-default">
+			<div class="panel-heading panel-heading-thumbnails">
+				<h3 class="panel-title">
+					<a class="accordion-toggle title-inline" data-toggle="collapse" data-parent="#filters-accordion" href="#filters">Filter Products</a>
+				</h3>
+			</div>
+			<ul id="filters" class="panel-collapse collapse list-group">
+				[%PRODUCT_FILTER type:'variations' autohide:'0' sortoption:'sortorder'%]
+					[%PARAM *header%]
+
+						[%DATA id:'activecount' if:'>' value:'0'%]
+							[%PARAM *if_true%]
+								<a href="[@remove_url@]" class="pull-right"> clear</a>
+							[%/PARAM%]
+						[%/DATA%]
+						<li class="list-group-item filter-title" data-filtercode="[@specific_id@]"><h4><i class="fa fa-angle-down pull-right"></i>Filter By [@filter_name@]</h4></li>
+					[%/PARAM%]
+					[%PARAM *body%]
+						[%DATA id:'selected' if:'==' value:'1'%]
+							[%PARAM *if_true%]
+								<li class="filter-remove filter" data-filtercode="[@specific_id@]"><a href="[@remove_single_url@]" class="list-group-item" rel="nofollow">
+									[@name@] <span class="text-muted"></span></a>
+									[%SITE_VALUE id:'filterthing'%]a[%/SITE_VALUE%]
+								</li>
+							[%/PARAM%]
+							[%PARAM *if_false%]
+								<li class="filter" data-filtercode="[@specific_id@]">
+									<a class="list-group-item" href="[@url@]"> [@name@] <span class="text-muted"></span></a>
+								</li>
+							[%/PARAM%]
+						[%/DATA%]
+					[%/PARAM%]
+				[%/PRODUCT_FILTER%]
+
+				[%PRODUCT_FILTER type:'category' limit:'100' autohide:'0' filter_parent_content:'1'%]
+					[%PARAM header%]
+						<li class="list-group-item filter-title" data-filtercode="category">
+							<h4><i class="fa fa-angle-down pull-right"></i> Filter By Category</h4>
+						</li>
+					[%/PARAM%]
+					[%PARAM *body%]
+						[%DATA id:'selected' if:'==' value:'1'%]
+							[%PARAM *if_true%]
+							<li class="filter-remove" data-filtercode="category"><a href="[@remove_url@]" class="list-group-item" rel="nofollow">
+							[@name@] <span class="text-muted">([@total@])</span></a>
+							</li>
+							[%/PARAM%]
+							[%PARAM *if_false%]
+								<li class="filter" data-filtercode="category">
+								<a href="[@url@]" class="list-group-item">[@name@] <span class="text-muted">([@total@])</span></a>
+								</li>
+							[%/PARAM%]
+						[%/DATA%]
+					[%/PARAM%]
+				[%/PRODUCT_FILTER%]
+
+				[%PRODUCT_FILTER type:'brand' limit:'50' autohide:'0'%]
+					[%PARAM header%]
+						<li class="list-group-item filter-title" data-filtercode="brand"><h4><i class="fa fa-angle-down pull-right"></i> Filter By Brand</h4></li>
+					[%/PARAM%]
+					[%PARAM *body%]
+						[%DATA id:'selected' if:'==' value:'1'%]
+							[%PARAM *if_true%]
+								<li class="filter-remove" data-filtercode="brand"><a href="[@remove_url@]" class="list-group-item" rel="nofollow">
+									[@brand@] <span class="text-muted">([@total@])</span></a>
+								</li>
+							[%/PARAM%][%PARAM *if_false%]
+								<li class="filter" data-filtercode="brand">
+									<a href="[@url@]" class="list-group-item">[@brand@] <span class="text-muted">([@total@])</span></a>
+								</li>
+							[%/PARAM%]
+						[%/DATA%]
+					[%/PARAM%]
+					[%PARAM more%]
+						<li class="lv1" data-filtercode="brand"><a class="list-group-item" href="[%URL type:'page' id:'brands'%][%/URL%]">Show all brands...</a></li>
+					[%/PARAM%]
+				[%/PRODUCT_FILTER%]
+			</ul>
+		</div>
+	[%/IF%]
+
+</div>
+<div class="col-xs-12 col-sm-9">

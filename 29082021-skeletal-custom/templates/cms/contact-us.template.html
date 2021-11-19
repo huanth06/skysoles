@@ -1,0 +1,66 @@
+</div></div>
+
+<div class="wrapper-prod-bg page-custom-contact page-custom" style="background: rgba(255,255,255,0.65);">
+
+
+	<div class="container">
+		<div class="row">
+			<div class="main-title">
+				<h1>
+					[@content_name@]
+				</h1>
+				
+
+				<form action="[%URL nohost:'1' type:'page' id:'[@content_id@]'%][%END URL%]" method="post"><input name="inp-submit" type="hidden" value="y" />
+					<div class="form-group-wrap">
+						
+
+
+						<div class="form-group"><label for="inp-first_name">First Name </label>
+
+
+							<input class="form-control" id="inp-first_name" name="inp-first_name" required="" size="40" type="text" value="[%nohtml%][@inp-first_name@][%end nohtml%]" /> <input class="hidden" name="inp-title" type="text" value="" />
+							<span class="small text-danger">Required</span>
+						</div>
+
+						<div class="form-group"><label>Last name</label> <input class="form-control" name="inp-last_name" size="40" type="text" value="[%nohtml%][@inp-last_name@][%end nohtml%]" />
+							<span class="small text-danger">Required</span>
+						</div>
+					</div>
+
+					<div class="form-group-wrap">
+						<div class="form-group"><label>Email address </label>
+							<input class="form-control" name="inp-email" required="" size="40" type="email" value="[%nohtml%][@inp-email@][%end nohtml%]" />
+							<span class="small text-danger">Required</span>
+						</div>
+						<div class="form-group"><label>Phone Number</label> <input class="form-control" name="inp-phone" size="40" type="text" value="[%nohtml%][@inp-phone@][%end nohtml%]" />
+						</div>
+					</div>
+					
+
+
+					<div class="form-group"><label>Message</label>
+						<textarea class="form-control col-xs-12 col-md-6" name="inp-msg" rows="5">[%nohtml%][@inp-msg@][%end nohtml%]</textarea>
+					</div>
+
+					<div class="form-group">
+						<div class="clear">&nbsp;</div>
+
+						<p><input name="state" type="hidden" value="email_sent" /></p>
+
+						<p><input class="btn btn-lg btn-secondary-on-white" type="submit" value="Send message" /></p>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	[%set [@alt@] %] [%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:''%][%END ASSET_URL%][%/set%]
+	[% if [@alt@] not like '' %]
+	<div class="relative">
+		<img src="[@alt@]" class="pull-right main-image full-width"/>
+		<div class="overplay"></div>
+	</div>
+	[%/if%]
+
+</div>

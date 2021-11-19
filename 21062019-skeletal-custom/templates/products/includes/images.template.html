@@ -1,0 +1,43 @@
+<meta property="og:image" content="[@full_image@]"/>
+<div class="main-image text-center">
+	<a href="[%asset_url type:'product' id:'[@SKU@]' thumb:'full' check_parent:'y'%][%END asset_url%]" class="fancybox" rel="product_images">
+		<div class="zoom">
+			<img src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL' check_parent:'y'%][%END asset_url%]" rel="itmimg[@SKU@]" alt="[@name@]" border="0" id="main-image" itemprop="image">
+		</div>
+	</a>
+[%THUMBNAILS id:'[@SKU@]'%]
+	[%PARAM *body%]
+	[%if [@type@] ne 'alt_1' and [@type@] ne 'alt_10' and [@type@] ne 'alt_9' and [@type@] ne 'alt_8' %]
+	<a href="[@full_image@]" class="fancybox" rel="product_images">
+		<div class="zoom">
+			<img src="[@full_image@]" border="0" id="main-image" itemprop="image">
+		</div>
+	</a>
+	[%/if%]
+	[%END PARAM%]
+[%END THUMBNAILS%]
+</div>
+[%THUMBNAILS id:'[@SKU@]'%]
+							[%param *header%]
+							<div class="thumbnail-images">
+						<div class="row alt-images">
+								<div class="col-xs-3">
+									<a href="javascript:void(0)"  rel="product_images" title="Large View">
+										<img src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumb' check_parent:'y'%][%END asset_url%]" rel="itmimg[@SKU@]" alt="[@name@]" border="0" id="main-image" itemprop="image">
+									</a>
+								</div>
+							[%/param%]
+							[%PARAM *body%]
+								[%if [@type@] ne 'alt_1' and [@type@] ne 'alt_10' and [@type@] ne 'alt_9' and [@type@] ne 'alt_8' %]
+								<div class="col-xs-3">
+									<a href="javascript:void(0)"  rel="product_images" title="Large View">
+										<img src="[@thumb_image@]" border="0" class="img-responsive product-image-small" title="Large View">
+									</a>
+								</div>
+								[%/if%]
+							[%END PARAM%]
+							[%param *footer%]
+							</div>
+					</div>
+							[%/param%]
+						[%END THUMBNAILS%]

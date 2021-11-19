@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content="[%url_info name:'meta_keywords'/%]"/>
+	<meta name="description" content="[%url_info name:'meta_description'/%]"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+	<meta property="og:image" content="[%if [@config:current_page_type@] eq 'product'%][@config:homeurl@][%asset_url type:'product' id:'[@SKU@]' thumb:'full'/%][%ELSEIF [@config:current_page_type@] eq 'content'%][@config:homeurl@][%ASSET_url type:'content' id:'[@content_id@]' default:'/assets/website_logo.png'%][%/ASSET_url%][%ELSE%][@config:homeurl@]/assets/website_logo.png[%/if%]"/>
+	<meta property="og:title" content="[%url_info name:'page_title'/%]"/>
+	<meta property="og:site_name" content="[@config:website_name@]"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="[@config:canonical_url@]"/>
+	<meta property="og:description" content="[%url_info name:'meta_description'/%]"/>
+	[@config:GOOGLE_VERIFICATION_CODE@]
+	<title>[%url_info name:'page_title'/%]</title>
+	<link rel="canonical" href="[@config:canonical_url@]"/>
+	<link rel="shortcut icon" href="/assets/favicon_logo.png"/>
+	<link rel="stylesheet" href="[%ntheme_asset%]fonts/css/all.css[%end ntheme_asset%]" />
+	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%/ntheme_asset%]" media="all"/>
+	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/slick-theme.css[%/ntheme_asset%]" media="all"/>
+	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/slick.css[%/ntheme_asset%]" media="all"/>
+	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/style.css[%/ntheme_asset%][@config:neto_css_version@]" media="all"/>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i" rel="stylesheet">
+	[%cdn_asset html:'1' type:'css' domain:'maxcdn.bootstrapcdn.com' library:'font-awesome' version:'4.7.0'%]css/font-awesome.min.css[%/cdn_asset%]
+	[%cdn_asset html:'1' type:'css' library:'jquery_ui' version:'1.11.1'%]css/custom-theme/jquery-ui-1.8.18.custom.css[%/cdn_asset%]
+	[%cdn_asset html:'1' type:'css' library:'fancybox' version:'2.1.5'%]jquery.fancybox.css[%/cdn_asset%]
+<!--[if lte IE 8]>
+	[%cdn_asset html:'1' type:'js' library:'html5shiv' version:'3.7.0'%]html5shiv.js[%/cdn_asset%]
+	[%cdn_asset html:'1' type:'js' library:'respond.js' version:'1.3.0'%]respond.min.js[%/cdn_asset%]
+<![endif]-->
+	[%tracking_code type:'Declaration'/%]
+</head>
+
+<style media="screen">
+.wrapper-header {
+	margin-bottom: 0;
+}
+
+</style>
+<body id="n_[@config:current_page_type@]" class="n_[@CONFIG:TEMPLATELANG@]">
+	<div class="header-container">
+		<div id="header-search" class="header-search collapse">
+			<div class="container">
+				<div class="header-search-content">
+					<div class="icon-close-search"><a href="javascript:void(0)" data-target="#header-search" data-toggle="collapse"></a></div>
+					<form name="productsearch" method="get" action="/">
+						<input type="hidden" name="rf" value="kw"/>
+						<div class="input-group">
+							<input class="form-control ajax_search" placeholder="Search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="text"/>
+							<span class="input-group-btn">
+								<button type="submit" value="Search" class="btn btn-default"></button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper-header">
+			<div class="wrapper-header-top pc-header">
+				<div class="container">
+					<div class="row d-flex">
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3-custom">
+
+							<div class="wrapper-logo">
+								<div class="inner-logo">
+									<a href="[@config:homeurl@]" title="[@config:company_name@]">
+										<img class="logo" src="[@config:imageurl@]/website_logo.png" alt="[@config:company_name@]"/>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-1 col-md-6 col-lg-6-custom menu-center">
+							<div class="menu-container">
+								<div class="menu-content">
+									<ul class="menu collapse hidden-sm hidden-xs" id="menu-mobile">
+										<li class="dropdown-hover-subcat custom">
+											<a href="javascript:void(0)" class="dropdown-toggle">Shop <i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></a>
+											<div id="dropdown-menu" class="dropdown-menu">
+												[%advert type:'text' template:'header-category-boxes' ad_group:'header category boxes' limit:'12' category:'0'%]
+												[%param *header%]
+												<ul>
+													[%/param%]
+													[%param *footer%]
+												</ul>
+												[%/param%]
+												[%/advert%]
+											</div>
+										</li>
+
+										<li class="dropdown-hover-subcat custom">
+											<a href="javascript:void(0)" class="dropdown-toggle" >Innovation <i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></a>
+											<div id="dropdown-menu-2" class="dropdown-menu">
+												[%advert type:'text' template:'header-category-boxes' ad_group:'header innovation thumbs' limit:'12' category:'0'%]
+												[%param *header%]
+												<ul>
+													[%/param%]
+													[%param *footer%]
+												</ul>
+												[%/param%]
+												[%/advert%]
+											</div>
+										</li>
+
+										[%menu id:'main_navigator'%]
+										[%param *level_1%]
+										<li class="[% if [@name@] eq 'Corporate Solutions' %]dropdown-hover-subcat [%/if%] [%if [@next_level@]%]dropdown dropdown-hover[%/if%]">
+
+
+										 <a href="[% if [@name@] eq 'Corporate Solutions' %]javascript:void(0)[%else%][@url@][%/if%]" [%if [@next_level@]%]class="dropdown-toggle"[%/if%]>[@name@] [%if [@next_level@]%]<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i> [%/if%]</a>
+											[%if [@next_level@]%]
+											<ul class="dropdown-menu special">
+												[@next_level@]
+											</ul>
+											[%/if%]
+										</li>
+										[%/param%]
+										[%param *level_2%]
+										<li class="[%if [@next_level@]%]dropdown dropdown-hover[%/if%]"> <a href="[@url@]" class="nuhover dropdown-toggle">[@name@]</a>
+											[%if [@next_level@]%]
+											<ul class="dropdown-menu dropdown-menu-horizontal">
+												[@next_level@]
+											</ul>
+											[%/if%]
+										</li>
+										[%/param%]
+										[%param *level_3%]
+										<li class="[%if [@next_level@]%]dropdown dropdown-hover[%/if%]"> <a href="[@url@]">[@name@]</a>
+											[%if [@next_level@]%]
+											<ul class="dropdown-menu dropdown-menu-horizontal">
+												[@next_level@]
+											</ul>
+											[%/if%]
+										</li>
+										[%/param%]
+										[%/menu%]
+									</ul>
+								</div>
+							</div>	
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3-custom menu-right">
+							<div class="top-links hidden-xs">
+								<div class="block-top-link"><div class="box-link"><a href="javascript:void(0)" title="Search" data-target="#header-search" data-toggle="collapse"><img src="/assets/images/search-icon.png"></a></div></div>
+								<div class="block-top-link hidden-xs">
+									<div class="box-link">
+										[%site_value id:'footer_javascript'%]
+										<script type="text/javascript">
+											$(document).ready(function(){
+												$("#fancyboxCurrency > ul > li > a").click(function(){
+													setTimeout(function(){
+														$.fancybox.close();
+													}, 2000)
+												});
+											});
+										</script>
+										[%/site_value%]
+										<a href="#fancyboxCurrency" class="fancybox"><i class="fas fa-dollar-sign"></i> <span id="selected_currency_3">AUD</span> <!-- <i class="fas fa-angle-down"></i> --></a>
+										<div id="fancyboxCurrency" style="display: none;">
+											<h3><i class="fa fa-money"></i> Change Currency</h3>
+												<ul class="list-currency">
+												<li><a href="#" onclick="dc_select_currency('AUD');"><img src="[%ntheme_asset%]img/flags/aud.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Australian Dollars" title="View prices in Australian Dollars"/> <span><i class="fa fa-dollar"></i> AUD</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('NZD');"><img src="[%ntheme_asset%]img/flags/nzd.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in NZ Dollars" title="View prices in NZ Dollars" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> NZD</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('USD');"><img src="[%ntheme_asset%]img/flags/usd.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in US Dollars" title="View prices in US Dollars" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> USD</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('GBP');"><img src="[%ntheme_asset%]img/flags/gbp.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Pounds" title="View prices in Pounds" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-gbp"></i> GBP</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('EUR');"><img src="[%ntheme_asset%]img/flags/euro.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Euro" title="View prices in Euro"/> <span><i class="fa fa-euro"></i> EURO</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('JPY');"><img src="[%ntheme_asset%]img/flags/japan.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Japanese Yen" title="View prices in Japanese Yen" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-jpy"></i> JPY</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('AED');"><img src="[%ntheme_asset%]img/flags/uae.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in UAE Dirham" title="View prices in UAE Dirham" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-uae"></i> UAE</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('CAD');"><img src="[%ntheme_asset%]img/flags/canada.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Canadian Dollar" title="View prices in Canadian Dollar" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> CAD</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('HKD');"><img src="[%ntheme_asset%]img/flags/hong-kong.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Hongkong Dollar" title="View prices in Hongkong Dollar" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> HKD</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('SGD');"><img src="[%ntheme_asset%]img/flags/singapore.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Singaporean Dollars" title="View prices in Singaporean Dollars" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> SGD</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('CNY');"><img src="[%ntheme_asset%]img/flags/china.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Chinese Yuan" title="View prices in Chinese Yuan" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-cny"></i> CNY</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('CHF');"><img src="[%ntheme_asset%]img/flags/switzerland.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Swiss Franc" title="View prices in Swiss Franc" style="cursor: hand; cursor:pointer;"/> <span>CHF</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('HUF');"><img src="[%ntheme_asset%]img/flags/hungary.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Hungarian Forint" title="View prices in Hungarian Forint" style="cursor: hand; cursor:pointer;"/> <span>HUF</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('CZK');"><img src="[%ntheme_asset%]img/flags/czech-republic.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Czech Republic Koruna" title="View prices in Czech Republic Koruna" style="cursor: hand; cursor:pointer;"/> <span>CZK</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('IDR');"><img src="[%ntheme_asset%]img/flags/indonesia.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Indonesian Rupiah" title="View prices in Indonesian Rupiah" style="cursor: hand; cursor:pointer;"/> <span>IDR</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('INR');"><img src="[%ntheme_asset%]img/flags/india.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Indian Rupee" title="View prices in Indian Rupee" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-inr" aria-hidden="true"></i>INR</span></a></li>
+												<li><a href="#" onclick="dc_select_currency('ZAR');"><img src="[%ntheme_asset%]img/flags/south-africa.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in South African Rand" title="View prices in South African Rand" style="cursor: hand; cursor:pointer;"/> <span>ZAR</span></a></li>
+											</ul>
+											<form method="post" action="" class="hidden">
+								<select name="ship_country">
+										<option value="AU" class="shipping-country" data-shipping="AU"> <a href="#"><img class="currency-flag" src="/assets/images/flags/AUD.png">Australia</a></option>
+										<option value="US" class="shipping-country" data-shipping="US"> <a href="#"><img class="currency-flag" src="/assets/images/flags/USD.png">United States</a></option>
+										<option value="ES" class="shipping-country" data-shipping="ES"> <a href="#"><img class="currency-flag" src="/assets/images/flags/EUR.png">Europe</a></option>
+										<option value="GB" class="shipping-country" data-shipping="GB"> <a href="#"><img class="currency-flag" src="/assets/images/flags/GBP.png">Great Britain</a></option>
+										<option value="JP" class="shipping-country" data-shipping="JP"> <a href="#"><img class="currency-flag" src="/assets/images/flags/JPY.png">Japan</a></option>
+										<option value="CA" class="shipping-country" data-shipping="CA"> <a href="#"><img class="currency-flag" src="/assets/images/flags/CAD.png">Canada</a></option>
+										<option value="NZ" class="shipping-country" data-shipping="NZ"> <a href="#"><img class="currency-flag" src="/assets/images/flags/NZD.png">New Zealand</a></option>
+										<option value="SG" class="shipping-country" data-shipping="SG"> <a href="#"><img class="currency-flag" src="/assets/images/flags/SGD.png">Singapore</a></option>
+										<option value="CN" class="shipping-country" data-shipping="CN"> <a href="#"><img class="currency-flag" src="/assets/images/flags/CNY.png">China</a></option>
+								</select>
+								<input type="submit" class="btn btn-primary shipping-save country-select-submit" value="Save" />
+						</form>
+
+						[%site_value id:'footer_javascript'%]
+									<script>
+										function updateCountry() {
+												//Get country code from dynamic converter field
+											var countryCode = $('#selected_currency_3').text();
+												//Append the corresponding image.
+											}
+											$('.single-country').click(function(){
+												updateCountry();
+												var currentShipping = $(this).data("shipping");
+												$('.shipping-country[data-shipping="' + currentShipping + '"]').attr('selected', 'selected');
+												$('.country-select-submit').trigger('click');
+											});
+											$( document ).ready(function() {
+											//SetTimeout is used so that the dynamic converter script has time to run.
+											setTimeout(function() {
+											updateCountry();
+													}, 2000);
+											});
+									</script>
+								 [%/site_value%]
+										</div>
+									</div>
+								</div>
+								<div class="block-top-link hidden-xs"><div class="box-link"><a href="/_myacct/" title="My account"><img src="/assets/images/user-icon.png"></a></div></div>
+								<div class="block-top-link">
+									<div class="box-link">
+										<div id="header-cart" class="btn-group">
+											<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+												<img src="/assets/images/cart-icon.png" alt="Cart" /> <span rel="a2c_item_count" class="total-cart-items">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span>
+											</a>
+											<ul class="dropdown-menu">
+												<li class="box" id="neto-dropdown">
+													<div class="body padding" id="cartcontents"></div>
+													<div class="footer"></div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container sp-header" id="mobile-navbar">
+				<div class="wrapper-inner-header">
+					<div class="row">
+						<div class="col-xs-4 col-sm-4">
+							<a href="/">
+								<img src="/assets/images/logo-mb.png" alt="Logo moblie">
+							</a>
+						</div>
+
+						<div class="col-xs-8 col-sm-8">
+							<div class="top-links-mb">
+								<div class="block-top">
+									<div class="box-link">
+										<a href="javascript:void(0)" title="Search" data-target="#header-search" data-toggle="collapse">
+											<img src="/assets/images/search-icon.png">
+										</a>
+									</div>
+								</div>
+
+								<div class="block-top fancyboxCurrency-tablet">
+									<a href="#fancyboxCurrency" class="fancybox"><i class="fas fa-dollar-sign"></i> <span id="selected_currency_3">AUD</span> <!-- <i class="fas fa-angle-down"></i> --></a>
+								</div>	
+								<div class="block-top">
+									<div class="box-link">
+										<div id="header-cart" class="btn-group">
+											<a href="[%url page:'checkout' type:'cart'%][%end url%]" class="">
+												<img src="/assets/images/cart-icon.png" alt="Cart moblie">
+												<span rel="a2c_item_count" class="total-cart-items">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span>
+											</a>
+											<ul class="dropdown-menu">
+												<li class="box" id="neto-dropdown">
+													<div class="body padding" id="cartcontents"></div>
+													<div class="footer"></div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="block-btn-menu">
+									<a class="menu-mobile collapsed" href="javascript:void(0)" title="Menu mobile" data-target="#menu-mobile" data-toggle="collapse"><i class="fas fa-bars"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				[%site_value id:'footer_javascript'%]
+				<script type="text/javascript">
+					$(document).ready(function(){
+						//Third Level collapse-menu
+						$('a.mob-drop').click(function() {
+							$('.subcat-cat').hide();
+							$('.subcat').removeClass("active");
+							$(this).toggleClass('active');
+						});
+
+						$('.subcat > a').click(function(e){
+							e.preventDefault();
+							var subcat = $(this).parent(".subcat");
+							$('.third-menu', subcat).toggle('slow');
+							$(this).parent(".subcat").toggleClass("active");
+						});
+					});
+				</script>
+				[%/site_value%]
+			</div>
+		</div>
+
+	</div>
+	<ul class="menu-sp">
+		[%menu id:'mob_navigator'%]
+		[%param *level_1%]
+		<li class="level_1 [%if [@next_level@]%]dropdown dropdown-hover js-lv1[%/if%] "> <a href="[%if [@next_level@]%]javascript:void(0);	[%else%][@url@]	[%/if%]" [%if [@next_level@]%]class="dropdown-toggle"[%/if%]>[@name@] </a>
+			[%if [@next_level@]%]<i class="fas fa-angle-down js-lv1-arrow"></i>[%/if%]
+			[%if [@next_level@]%]
+			<ul class="dropdown-menu">
+				[@next_level@]
+			</ul>
+			[%/if%]
+		</li>
+		[%/param%]
+		[%param *level_2%]
+		<li class="level_2 [%if [@next_level@]%]dropdown dropdown-hover[%/if%]"> <a href="[@url@]" class="nuhover dropdown-toggle">[@name@]
+		</a>
+		[%if [@next_level@]%]	<i class="fas fa-angle-down js-lv2"></i>[%/if%]
+		[%if [@next_level@]%]
+		<ul class="dropdown-menu dropdown-menu-horizontal">
+			[@next_level@]
+		</ul>
+		[%/if%]
+	</li>
+	[%/param%]
+	[%param *level_3%]
+	<li class="[%if [@next_level@]%]dropdown dropdown-hover[%/if%]"> <a href="[@url@]">[@name@] </a>
+		[%if [@next_level@]%]	<i class="fas fa-angle-down"></i>[%/if%]
+		[%if [@next_level@]%]
+		<ul class="dropdown-menu dropdown-menu-horizontal">
+			[@next_level@]
+		</ul>
+		[%/if%]
+	</li>
+	[%/param%]
+	[%/menu%]
+	<li >
+		<a href="#fancyboxCurrency" class="fancybox">Set currency</a>
+		<div id="fancyboxCurrency" style="display: none;">
+			<h3><i class="fa fa-money"></i> Change Currency</h3>
+			<ul class="list-currency">
+				<li><a href="#" onclick="dc_select_currency('AUD');"><img src="[%ntheme_asset%]img/flags/aud.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Australian Dollars" title="View prices in Australian Dollars"/> <span><i class="fa fa-dollar"></i> AUD</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('NZD');"><img src="[%ntheme_asset%]img/flags/nzd.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in NZ Dollars" title="View prices in NZ Dollars" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> NZD</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('USD');"><img src="[%ntheme_asset%]img/flags/usd.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in US Dollars" title="View prices in US Dollars" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> USD</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('GBP');"><img src="[%ntheme_asset%]img/flags/gbp.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Pounds" title="View prices in Pounds" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-gbp"></i> GBP</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('EUR');"><img src="[%ntheme_asset%]img/flags/euro.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Euro" title="View prices in Euro"/> <span><i class="fa fa-euro"></i> EURO</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('JPY');"><img src="[%ntheme_asset%]img/flags/japan.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Japanese Yen" title="View prices in Japanese Yen" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-jpy"></i> JPY</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('AED');"><img src="[%ntheme_asset%]img/flags/uae.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in UAE Dirham" title="View prices in UAE Dirham" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-uae"></i> UAE</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('CAD');"><img src="[%ntheme_asset%]img/flags/canada.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Canadian Dollar" title="View prices in Canadian Dollar" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> CAD</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('HKD');"><img src="[%ntheme_asset%]img/flags/hong-kong.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Hongkong Dollar" title="View prices in Hongkong Dollar" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> HKD</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('SGD');"><img src="[%ntheme_asset%]img/flags/singapore.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Singaporean Dollars" title="View prices in Singaporean Dollars" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-dollar"></i> SGD</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('CNY');"><img src="[%ntheme_asset%]img/flags/china.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Chinese Yuan" title="View prices in Chinese Yuan" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-cny"></i> CNY</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('CHF');"><img src="[%ntheme_asset%]img/flags/switzerland.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Swiss Franc" title="View prices in Swiss Franc" style="cursor: hand; cursor:pointer;"/> <span>CHF</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('HUF');"><img src="[%ntheme_asset%]img/flags/hungary.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Hungarian Forint" title="View prices in Hungarian Forint" style="cursor: hand; cursor:pointer;"/> <span>HUF</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('CZK');"><img src="[%ntheme_asset%]img/flags/czech-republic.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Czech Republic Koruna" title="View prices in Czech Republic Koruna" style="cursor: hand; cursor:pointer;"/> <span>CZK</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('IDR');"><img src="[%ntheme_asset%]img/flags/indonesia.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Indonesian Rupiah" title="View prices in Indonesian Rupiah" style="cursor: hand; cursor:pointer;"/> <span>IDR</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('INR');"><img src="[%ntheme_asset%]img/flags/india.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in Indian Rupee" title="View prices in Indian Rupee" style="cursor: hand; cursor:pointer;"/> <span><i class="fa fa-inr" aria-hidden="true"></i>INR</span></a></li>
+				<li><a href="#" onclick="dc_select_currency('ZAR');"><img src="[%ntheme_asset%]img/flags/south-africa.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in South African Rand" title="View prices in South African Rand" style="cursor: hand; cursor:pointer;"/> <span>ZAR</span></a></li>
+			</ul>
+		</div>
+	</li>
+
+</ul>
+<div class="pageHeaderMenu--spacing-helper"></div>
+
+<div id="main-content"  role="main">
+	<div class="container">
+		<div class="row">

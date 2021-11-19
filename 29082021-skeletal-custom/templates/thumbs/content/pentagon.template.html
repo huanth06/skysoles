@@ -1,0 +1,34 @@
+
+[% if [@name@] %]
+[%set [@icon@] %][%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:''%][%END ASSET_URL%][%/set%]
+[%set [@image@] %][%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%][%/set%]
+
+[% set  [@count@]  %]
+[%calc  [@count@] + 2 /%]
+[%/set%]
+
+<li  id="section-pentagon-[@count@]" style="background-image: url([@image@])" class="section-pentagon paralax-bg [% if [@image@] not like '/pixel.gif' %]has-bg[%/if%]" data-parallax="scroll" data-image-src="[@image@]">
+	<div class="container" >
+		<div class="row">
+			<div class="main-title text-left">
+				[@content_description2@]
+				<div class="content-detail">
+					<div class="icon">
+						<img src="[@icon@]" alt="" width="116px">
+					</div>
+					<div class="text">
+						<h2>
+						[@name@]
+						</h2>
+						<div class="short">
+							[@content_short_description1@]
+						</div>
+						[@content_description1@]
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</li>
+[%/ if%]

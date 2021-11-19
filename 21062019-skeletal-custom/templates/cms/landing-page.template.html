@@ -1,0 +1,60 @@
+<video width="100%" poster="[%ntheme_asset%]img/clouds.png[%/ntheme_asset%]" id="bgvid" playsinline autoplay muted loop>
+    <source src="/assets/clouds.webm" type="video/webm">
+    <source src="/assets/clouds.mp4" type="video/mp4">
+</video>
+<div class="wrapper-landing-info">
+	<div class="wrap-logo">
+    	<a href="[@config:homeurl@]" title="[@config:company_name@]">
+            <img class="logo" src="[@config:imageurl@]/website_logo.png" alt="[@config:company_name@]"/>
+        </a>
+    </div>
+    <h3>Designed by Crew<span>for Crew</span></h3>
+    <h4>Boarding Soon...</h4>
+    <!-- Begin MailChimp Signup Form -->
+    <div id="mc_embed_signup">
+        <form action="//skysoles.us15.list-manage.com/subscribe/post?u=6735df13e0351d2833c907451&amp;id=e7b73763ff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+        <div class="mc-field-group">
+        <label for="mce-EMAIL" class="hidden">Sign up here for news and updates</label>
+        <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL" placeholder="Sign up here for news and updates">
+        </div>
+        <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+        </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6735df13e0351d2833c907451_e7b73763ff" tabindex="-1" value=""></div>
+        <div class="subscribe-btn"><input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-block"></div>
+        </div>
+        </form>
+    </div>
+    <!--End mc_embed_signup-->
+    <ul class="list-inline list-social" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="url" content="[@config:home_url@]"/>
+        <meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
+        <meta itemprop="name" content="[@config:company_name@]"/>
+        [%if [@config:facebook_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank"><i class="fa fa-facebook-square text-facebook"></i></a></li>
+        [%/if%]
+        [%if [@config:twitter_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank"><i class="fa fa-twitter-square text-twitter"></i></a></li>
+        [%/if%]
+        [%if [@config:googleplus_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank"><i class="fa fa-google-plus-square text-google-plus"></i></a></li>
+        [%/if%]
+        [%if [@config:youtube_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank"><i class="fa fa-youtube-square text-youtube"></i></a></li>
+        [%/if%]
+        [%if [@config:instagram_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank"><i class="fa fa-instagram text-instagram"></i></a></li>
+        [%/if%]
+        [%if [@config:pinterest_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank"><i class="fa fa-pinterest-square text-pinterest"></i></a></li>
+        [%/if%]
+        [%if [@config:tumblr_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank"><i class="fa fa-tumblr-square text-tumblr"></i></a></li>
+        [%/if%]
+        [%if [@config:linkedin_account_id@]%]
+        <li><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank"><i class="fa fa-linkedin-square text-linkedin"></i></a></li>
+        [%/if%]
+    </ul>
+</div>

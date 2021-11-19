@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="wrap-blog-block">
+    	<div class="wrap-blog-img"  data-href="[@url@]">
+
+            <img src="[%asset_url type:'content' id:'[@content_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%end asset_url%]" alt="[@content_name@]">
+        	
+        </div>
+        <div class="wrap-blog-conts">
+        	<h3 content="[@content_name@]">
+				<a href="[@URL@]" itemprop="url">[@content_name@]</a>
+        	</h3>
+            <p itemprop="description">[%format type:'text' RMHTML:'1' trim:'LE2R'%][@content_short_description1@][%END format%]</p>
+            <a class="readmore" href="[@url@]">Read More </a>
+        </div>
+    </div>
+</div>

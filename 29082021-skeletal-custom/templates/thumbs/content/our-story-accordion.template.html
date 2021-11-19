@@ -1,0 +1,65 @@
+
+[% if [@name@] %]
+<li>
+	[%set [@image@] %][%asset_url type:'content' id:'[@content_id@]' default:'na' /%][%/set%]
+	
+	<div class="container">
+		<div class="row">
+			<div class="box-wrap" >
+				<div class="box-text-content" >
+					<div class="box-image">
+						[% if [@image@] not like 'na' %]
+						<img src="[%asset_url type:'content' id:'[@content_id@]' default:''/%]" class="pull-right full-width"/>
+						[%/ if%]
+					</div>
+					<div class="box-text">
+						<h3>[@name@]</h3>
+						<p class="short-description">
+							[@content_short_description1@]
+						</p>
+						<div class="hidden-xs">
+							<div class="description pc" id="pc-[@content_id@]">
+							[@content_description1@]
+							</div>
+						</div>
+						<div class="action hidden-xs">
+							<a href="javascript:void(0);" class="js-minus-accordion"  data-id="[@content_id@]"> 
+
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 512 512;width: 12px;height: 12px;" xml:space="preserve" class=""><g> <g xmlns="http://www.w3.org/2000/svg"> <g> <rect y="128" width="298.667" height="42.667" fill="#004996" data-original="#000000" style=""></rect> </g> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> </g></svg>
+							Hide</a>
+							<a href="javascript:void(0);" class="js-plus-accordion"  data-id="[@content_id@]"> 
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 448 448" style="height: 11px;width: 15px;enable-background:new 0 0 512 512;" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0" fill="#004996" data-original="#000000" style="" class=""></path></g></svg>
+							Read more</a>
+						</div>
+
+						<div class="action action-sp visible-xs">
+							
+							<a href="javascript:void(0);" class="js-plus-accordion-sp [@content_id@]" data-id="[@content_id@]">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 448 448" style="height: 11px;width: 15px;enable-background:new 0 0 512 512;" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0" fill="#004996" data-original="#000000" style="" class=""></path></g></svg>
+							Read more</a>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="visible-xs">
+							<div class="description mb" id="sp-[@content_id@]">
+							[@content_description1@]
+
+							<div class="action action-sp action-sp-minus visible-xs">
+							<a href="javascript:void(0);" class="js-minus-accordion-sp [@content_id@]" data-id="[@content_id@]"> 
+
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 512 512;width: 12px;height: 12px;" xml:space="preserve" class=""><g> <g xmlns="http://www.w3.org/2000/svg"> <g> <rect y="128" width="298.667" height="42.667" fill="#004996" data-original="#000000" style=""></rect> </g> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> <g xmlns="http://www.w3.org/2000/svg"> </g> </g></svg>
+							Hide</a>
+							
+						</div>
+							</div>
+
+							
+						</div>
+		</div>
+	</div>
+</li>
+[%/ if%]

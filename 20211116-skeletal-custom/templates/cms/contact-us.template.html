@@ -1,0 +1,31 @@
+</div></div>
+
+<div class="wrapper-prod-bg page-custom-contact page-custom" style="background: rgba(255,255,255,0.65);">
+
+
+	<div class="container">
+		<div class="row">
+			<div class="main-title">
+				<h1>
+					[@content_name@]
+				</h1>
+				
+				[%if [@content_description2@] %]
+					[%parse%]
+						[@content_description2@]
+					[%/parse%]
+				[%/if%]
+				
+
+			</div>
+		</div>
+	</div>
+	[%set [@alt@] %] [%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:''%][%END ASSET_URL%][%/set%]
+	[% if [@alt@] not like '' %]
+	<div class="relative">
+		<img src="[@alt@]" class="pull-right main-image full-width"/>
+		<div class="overplay"></div>
+	</div>
+	[%/if%]
+
+</div>

@@ -1,0 +1,311 @@
+ 	</div>
+ </div>
+ <!-- [%if [@config:show_home_ads@]%]
+ [%advert type:'text' template:'custom-banner' limit:'2' ad_group:'main tiles' allow_duplicate:'1'%]
+ [%param *header%]
+ <div class="wrapper-homepage-banner">
+ 	<div class="homepage-banner">
+ 		[%/param%]
+ 		[%param *footer%]
+ 	</div>
+ </div>
+ [%/param%]
+ [%param *ifempty%]
+ <a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[@config:home_url@]/_cpanel?item=adw&page=view&id=New&plan_id=1">
+ 	Click to add a banner<br/>
+ </a>
+ [%/param%]
+ [%/advert%]
+ [%/if%]
+
+-->
+
+<!--  
+ [%advert type:'text' template:'category-boxes' limit:'4' ad_group:'category boxes'%]
+ [%param *header%]
+ <div class="wrapper-featured-products">
+ 	[%/param%]
+ 	[%param *footer%]
+ </div>
+ [%/param%]
+ [%/advert%] -->
+
+ <div class="wrapper-homepage-banner">
+    <div class="homepage-banner">
+
+        [%advert type:'text' limit:'2' ad_group:'main tiles'  allow_duplicate:'1' %]
+        [%param *body%]
+        <div class="item" style="background-image: url([%asset_url type:'adw' id:'[@ad_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END asset_url%])">
+            <div class="overplay"></div>
+            <div class="wrapper-item">
+                <a href="[@url@]">
+                    <div class="icon">
+                        [%if [@count@] eq '0'%]
+
+                        [%content_zone id:'tile_left_logo'%][%end content_zone%]
+                        [%else%]
+                        [%content_zone id:'tile_right_logo'%][%end content_zone%]
+                        [%/if%] 
+                    </div>
+                    [%if [@headline@]%]
+                    <div class="title">
+                        [@headline@] 
+                    </div>
+                    [%/if%]
+                    [%if [@linktext@]%]
+                    <div class="view-more">
+                        [@linktext@]
+                    </div>
+                    [%/if%]
+                </a>
+
+            </div>
+        </div>
+        [%/param%]
+        [%/advert%]
+
+        <div class="arrow-down">
+            <img src="/assets/images/arrow-next.png" alt="Read more">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="wrapper-homepage-blurb">
+  <div class="container">
+     <div class="row">
+        <div class="col-xs-12">
+           <div  class="content text-center">
+            [%content_zone id:'blurb_icon'%][%end content_zone%] 
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+[%advert type:'text' limit:'1' ad_group:'cta block'  allow_duplicate:'1' %]
+[%param *header%]
+<div class="wrapper-homepage-add bg-gray">
+    <div class="container">
+     [%/param%]
+     [%param *body%]
+     <div class="row align-items-center">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            [%if [@headline@]%]
+            <h3>
+                [@headline@] 
+            </h3>
+            [%/if%]
+
+            <p>
+              [%if [@description@]%][@description@][%/if%]
+          </p>
+      </div>
+      <div class="col-xs-12 col-sm-6 text-center">
+        <button class="btn-secondary-on-gray">
+           <a href="[@url@]">
+            [@linktext@]
+        </a>
+    </button>
+</div>
+</div>
+[%/param%]
+[%param *footer%]
+</div>
+</div>
+
+[%/advert%]
+
+
+<style type="text/css">
+
+</style>
+
+
+[%advert type:'text' limit:'3' ad_group:'secondary tiles' %]
+[%param *header%]
+
+<div class="wrapper-homepage-collection paralax-bg"  style="background: url([%content_zone id:'tiles_background'%][%end content_zone%])">
+
+    <div class="clearfix">
+        <div class="row">
+            [%/param%]
+            [%param *body%]
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="item">
+                    <a href="[@url@]">
+                        <div class="item-image">
+                            <div class="overplay"></div>
+                            <img src="[%asset_url type:'adw' id:'[@ad_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END asset_url%]" alt="[@headline@]">
+                        </div>
+                        <div class="item-title">
+                            <div class="wrap">
+                                <h3>[@headline@] </h3>
+                                <p>[@description@]</p>
+                            </div>
+                            <div class="view-more">
+                                <img src="/assets/images/arrow-next.png" alt="Read more">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            [%/param%]
+            [%param *footer %]
+        </div>
+    </div>
+</div>
+[%/advert%]
+
+[%advert type:'text' limit:'1' ad_group:'image text block'%]
+[%param *header%]
+
+<div class="wrapper-homepage-advert bg-gray">
+  <div class="container">
+     [%/param%]
+     [%param *body%]
+     <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="left-banner" data-href="[@url@]">
+                <div class="overplay"></div>
+               <img src="[%asset_url type:'adw' id:'[@ad_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END asset_url%]" alt="[@headline@]">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-6">
+        <div class="adverst-content">
+          <h3>
+             [@headline@]
+         </h3>
+         <div class="content">
+             <p>[@description@]</p>
+         </div>
+         <div class="btn-wrapper">
+             <button class="btn-secondary-on-gray">
+               <a href="[@url@]">
+                [@linktext@]
+            </a>
+        </button>
+    </div>
+</div>
+
+</div>
+</div>
+[%/param%]
+[%param *footer %]
+</div>
+</div>
+[%site_value id:'footer_javascript'%]
+<script type="text/javascript">
+   $(document).ready(function(){
+      $(".left-banner").click(function(){
+         var url = $(this).attr('data-href');
+         window.location = url;
+     })
+  });
+</script>
+[%/site_value%]
+[%/param%]
+
+[%/advert%]
+
+
+
+<div class="wrapper-homepage-gossip">
+
+  <div class="container">
+     <div class="row">
+
+        [%thumb_list type:'content' content_type:'gallery' limit:'8' template:'gallery-thumb' filter_category:'110'%]
+        [%param *header%]
+        [%site_value id:'footer_javascript'%]
+        <script type="text/javascript">
+        
+
+            $(window).on("load resize", function(){
+              var width = $(document).width();
+
+     
+                if (width > 768) {
+                 
+
+                 $(".wrapper-gallery-gossip").slick({
+                     infinite: true,
+                     autoplay: true,
+                     adaptiveHeight: true,
+                     autoplaySpeed: 3000,
+                     slidesToShow: 4,
+                     slidesToScroll: 1,
+                     responsive: [
+                     {
+                        breakpoint: 1199,
+                        settings: {
+                           slidesToShow: 4,
+                           slidesToScroll: 1,
+                           infinite: true,
+                       }
+                   },
+                   {
+                    breakpoint: 850,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                       slidesToShow: 2,
+                       slidesToScroll: 1
+                   }
+               },
+               {
+                breakpoint: 600,
+                settings: "unslick"
+            }
+            ]
+        });
+                 
+             } else {
+                 $('.wrapper-gallery-gossip').filter('.slick-initialized').slick('unslick');
+             }
+       
+     });
+
+
+
+    </script>
+    [%/site_value%]
+    <div class="wrapper-galley-heading">
+       <h3 class="galley-heading">
+          <a href="[%url id:'390' /%]">Galley Gossip</a>
+      </h3>
+  </div>
+  <div class="row wrapper-gallery-gossip">
+   [%/param%]
+   [%param *footer%]
+</div>
+[%/param%]
+[%/thumb_list%]
+</div>
+</div>
+</div>
+[%thumb_list type:'content' content_type:'testimonials' limit:'20'  template:'testimonials-thumb' filter_category:''%]
+[%param *header%]
+<div class="wrapper-testimonials">
+  <div class="title text-center">
+     <h3> [%content_zone id:'testimonial_title_main'%][%end content_zone%]</h3>
+ </div>
+ <div class="container">
+     <div class="row">
+        [%/param%]
+        [%param *footer%]
+    </div>
+</div>
+</div>
+[%/param%]
+[%/thumb_list%]	
+
+<div class="container">
+  <div class="row">

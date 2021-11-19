@@ -1,0 +1,502 @@
+[%site_value id:'footer_javascript'%]
+	<script type="text/javascript" language="javascript">
+		function parseDate(str) {
+		  var mdy = str.split('-');
+		  return new Date(mdy[0], mdy[1], mdy[2]);
+		}
+		$(document).ready(function() {
+
+			$('.colour-variation ._itmspec_lnk span').click(function(){
+			   $temp = $(this).text();
+			   $('.result-color').text($temp);
+
+			  });
+			$('.main-image').slick({
+			 	slidesToShow: 1,
+			 	slidesToScroll: 1,
+			 	arrows: false,
+			 	fade: false,
+			 	asNavFor: '.wrapper-prod-bg .row.alt-images'
+			 });
+
+			 $('.wrapper-prod-bg .row.alt-images').slick({
+			 	slidesToShow: 5,
+			 	slidesToScroll: 1,
+			 	asNavFor: '.main-image',
+			 	dots: false,
+			 	centerPadding: '5px',
+			 	focusOnSelect: true
+			 });
+			$.product_variationInit({
+				'loadtmplates': ['_buying_options', '_images','_header'],
+				'fns' : {
+					'onLoad' : function () {
+						$('.addtocart').button("loading");
+						$('.colour-variation ._itmspec_lnk span').click(function(){
+						   $temp = $(this).text();
+						   $('.result-color').text($temp);
+
+					  	});
+					},
+					'onReady' : function () {
+						$('.addtocart').button("reset");
+						$('.zoom').zoom();
+						$('.colour-variation ._itmspec_lnk span').click(function(){
+						   $temp = $(this).text();
+						   $('.result-color').text($temp);
+
+					  	});
+						$('.main-image').slick({
+						 	slidesToShow: 1,
+						 	slidesToScroll: 1,
+						 	arrows: false,
+						 	fade: false,
+						 	asNavFor: '.wrapper-prod-bg .row.alt-images'
+						 });
+
+						 $('.wrapper-prod-bg .row.alt-images').slick({
+						 	slidesToShow: 5,
+						 	slidesToScroll: 1,
+						 	asNavFor: '.main-image',
+						 	dots: false,
+						 	centerPadding: '5px',
+						 	focusOnSelect: true
+						 });
+						 var d = new Date();
+
+						var month = d.getMonth()+1;
+						var day = d.getDate();
+
+						var current_date = d.getFullYear() + '-' +
+						    (month<10 ? '0' : '') + month + '-' +
+						    (day<10 ? '0' : '') + day;
+						    console.log(current_date);
+						var endDate_str = $("#date-end").val();
+						var startDate = parseDate(current_date).getTime();
+					    var endDate = parseDate(endDate_str).getTime();
+					    if (startDate <= endDate) {
+						    $("#backoder").hide();
+						    $("#preorder").show();
+						    $("#alt-backorder").hide();
+						    $("#alt-preorder").show();
+						} else {
+						    $("#backoder").show();
+						    $("#preorder").hide();
+						    $("#alt-backorder").show();
+						    $("#alt-preorder").hide();
+						}
+					},
+				}
+			});
+			[%if [@has_components@]%]
+				$.kit_variationInit({});
+			[%/if%]
+		});
+	</script>
+	<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/zoom/1.4/jquery.zoom-min.js"></script>
+	<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/jcountdown/1.4/jquery.jcountdown.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.zoom').zoom();
+
+			$("#sale-end").countdown({
+				date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]"
+			});
+
+			$('#accordion > .panel-default').on('show.bs.collapse', function (e) {
+				$(this).toggleClass("active inactive");
+				$(this).find('.fa').toggleClass("fa-chevron-circle-down fa-chevron-circle-up");
+			});
+
+			$('#accordion > .panel-default').on('hide.bs.collapse', function (e) {
+				$(this).toggleClass("active inactive");
+				$(this).find('.fa').toggleClass("fa-chevron-circle-up fa-chevron-circle-down");
+			});
+
+			$('.wrapper-reviews .wrapper-reviews-content > .container > .row').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				autoplay: false,
+				autoplaySpeed: 2000,
+			});
+
+			$(".btn-view-prod").click(function(e){
+				e.preventDefault();
+				$('html, body').animate({
+			        scrollTop: $(".wrapper-product-title").offset().top
+			    }, 2000);
+			});
+			//$(".wrapper-whats-in-the-box .row > div:first-child").next().andSelf().wrapAll('<div class="box-content-left" />');
+			function imageLoaded() {
+				if ($(window).width() <= 500) {
+    				var totalHeight = $(".wrapper-homepage-banner > .homepage-banner > img").height() + 80;
+    				$(".wrapper-homepage-banner > .homepage-banner > img").height(totalHeight);
+    			}
+		    }
+		    $('.wrapper-homepage-banner > .homepage-banner > img').each(function() {
+		        if( this.complete ) {
+		            imageLoaded.call( this );
+		        } else {
+		            $(this).one('load', imageLoaded);
+		        }
+		    });
+
+		});
+	</script>
+[%/site_value%]
+[%cache type:'display' id:'[@inventory_id@]'%]
+	</div>
+</div>
+<div class="wrapper-prod-bg" style="background: rgba(255,255,255,0.65);">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			[%breadcrumb%]
+				[%param *header%]
+					<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+						<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+							<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+						</li>
+				[%/param%]
+				[%param *body%]
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+					</li>
+				[%/param%]
+				[%param *footer%]
+					</ul>
+				[%/param%]
+			[%/breadcrumb%]
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 detail-content-left">
+					[%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+
+				</div>
+				<div class="col-xs-12 col-sm-6 detail-content-right">
+                	<div class="row">
+                    	<div class="wrapper-product-title col-xs-12">
+                            <h1 itemprop="name" class="product-name">[@name@]</h1>
+                            [%if [@subtitle@]%]
+                                <h3 class="subtitle">[@subtitle@]</h3>
+                            [%/if%]
+                        </div>
+                    </div>
+					[%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+					<form autocomplete="off">
+						[%list_item_variations id:'[@current_sku@]'%]
+							[%param header%]
+							<input type="hidden" id="_itmspec_sku" value="[%nohtml%][@SKU@][%/nohtml%]">
+							<hr>
+							<div class="row">
+							[%/param%]
+								[%param *variation_header%]
+										<div class="_itmspec_listopt col-xs-12 col-md-12" ref="[@specific_id@]">
+											<div class="variation-name">
+												<strong>Select [@specific_name@]</strong>
+											</div>
+											<div class="specific [%if [@specific_name@] like 'Size'%]size-variation[%/if%][%if [@specific_name@] like 'Colour'%]colour-variation[%/if%]">
+													<input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+								[%/param%]
+								[%param *variation_body%]
+													<div class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+														[%if [@specific_name@] like 'Colour'%]
+														<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+															<input id="result-color" type="hidden" value="[@value_name@]" name="" />
+															<span style="[%if [@value_image@]%]background-image: url([@value_image@])[%/if%][%if [@value_swatch@]%]background-color: [@value_swatch@][%/if%]">
+																[%if [@value_image@]%]
+																<img src="[@value_image@]" alt="[@value_name@]" />
+																[%/if%]
+																[%if [@value_name@]%]
+																	[@value_name@]
+																[%ELSE%]
+																	[@value_description@]
+																[%/if%]
+															</span>
+														</a>
+														<span class="result-color"></span>
+														[%else%]
+														<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+															[%if [@value_image@]%]
+																<img src="[@value_image@]" alt="[@value_name@]" />
+															[%/if%]
+															[%if [@value_name@]%]
+																[@value_name@]
+															[%ELSE%]
+																[@value_description@]
+															[%/if%]
+														</a>
+														[%/if%]
+													</div>
+								[%/param%]
+								[%param *variation_body_radio%]
+													<label class="_itmspec_listitm btn btn-default" ref="[@specific_id@]_[@value_id@]">
+														<input class="_itmspec_radio" type="radio" name="_itmspec_radio[@specific_id@]" value="[@value_id@]" ref="[@specific_id@]_[@value_id@]" [%if [@selected@]%]checked[%/if%]> [@value_name@]
+													</label>
+								[%/param%]
+								[%param *variation_body_image%]
+													<span class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+														<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+															[%if [@value_image@]%]
+																	<img src="[@value_image@]" alt="[@value_name@]">
+																[%else%]
+																	[@value_name@]
+															[%/if%]
+														</a>
+													</span>
+								[%/param%]
+								[%param *variation_footer%]
+													<div class="clear"></div>
+												</div>
+											</div>
+								[%/param%]
+							[%param footer%]
+								</div>
+							[%/param%]
+						[%/list_item_variations%]
+						[%if ![@has_variation@]%]
+						[%load_template file:"products/includes/child_products.template.html"/%]
+						[%/if%]
+					</form>
+					[%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
+						[%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+					[%/if%]
+					<div class="panel-group products" id="accordion" role="tablist" aria-multiselectable="true">
+						[%if [@features@]%]
+	                   <div class="panel panel-default active">
+	                      <div class="panel-heading">
+	                         <h4 class="panel-title">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="#productFeatures">
+	                            <span>Features</span>
+	                            </a>
+	                         </h4>
+	                      </div>
+	                      <div id="productFeatures" class="panel-collapse collapse in">
+	                         <div class="panel-body">
+	                            [@features@]
+	                         </div>
+	                      </div>
+	                   </div>
+	                   [%/if%]
+	                   [%if [@misc1@]%]
+	                   <div class="panel panel-default inactive">
+	                      <div class="panel-heading">
+	                         <h4 class="panel-title">
+	                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#productLeathers">
+	                            Our Leathers
+	                            </a>
+	                         </h4>
+	                      </div>
+	                      <div id="productLeathers" class="panel-collapse collapse">
+	                         <div class="panel-body">
+	                            [@misc1@]
+	                         </div>
+	                      </div>
+	                   </div>
+	                   [%/if%]
+	                   [%IF [@misc2@]%]
+	                   <div class="panel panel-default inactive">
+	                      <div class="panel-heading">
+	                         <h4 class="panel-title">
+	                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#productDelivery">
+	                            Delivery
+	                            </a>
+	                         </h4>
+	                      </div>
+	                      <div id="productDelivery" class="panel-collapse collapse">
+	                         <div class="panel-body">
+	                            [@misc2@]
+	                         </div>
+	                      </div>
+	                   </div>
+	                   [%/if%]
+	                   [%IF [@misc3@]%]
+	                   <div class="panel panel-default inactive">
+	                      <div class="panel-heading">
+	                         <h4 class="panel-title">
+	                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#productSize">
+	                            Size Guide
+	                            </a>
+	                         </h4>
+	                      </div>
+	                      <div id="productSize" class="panel-collapse collapse">
+	                         <div class="panel-body">
+	                            [%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
+									[%PARAM *brochure%]
+									[%content_zone id:'size_guide'%][%end content_zone%]
+									[%END PARAM%]
+								[%END THUMBNAILS%]
+	                         </div>
+	                      </div>
+	                   </div>
+	                   [%/if%]
+	                </div>
+					[%if [@has_components@]%]
+					<hr>
+						<h2>Customise Your Purchase</h2>
+						[%load_template file:"products/includes/components.template.html"/%]
+					[%/if%]
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					[%discount_products id:'[@SKU@]' template:'' show_all:'1' limit:'100'%]
+						[%param header%]
+							<div class="alert alert-success">
+								<h3>BONUS ITEMS! <small>Buy [@name@] Today &amp; Receive These For FREE!</small></h3>
+									<div class="row">
+							[%/param%]
+							[%param *body%]
+									<div class="col-sm-3">
+										<div class="thumbnail">
+											<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image">
+												<img src="[@thumb@]" alt="[@name@]">
+											</a>
+											<div class="caption">
+												<h3 class="title">
+													<a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a>
+												</h3>
+												<div class="text-success"><strong>FREE</strong> With This Item!</div>
+											</div>
+										</div>
+									</div>
+							[%/param%]
+							[%param footer%]
+							</div>
+						</div>
+						[%/param%]
+					[%/discount_products%]
+					[%free_gifts id:'[@SKU@]'%]
+						[%param *header%]
+							<div class="alert alert-success">
+								<h3>FREEBIES! <small>Buy [@name@] Today &amp; Choose From One Of These FREE Gifts!</small></h3>
+								<div class="row">
+						[%/param%]
+						[%param *body%]
+								<div class="col-sm-3">
+									<div class="thumbnail">
+										<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image">
+											<img src="[@thumb@]" alt="[@name@]">
+										</a>
+										<div class="caption">
+											<h3 class="title">
+												<a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a>
+											</h3>
+											<div class="text-success"><strong>FREE</strong> With This Item!</div>
+										</div>
+									</div>
+								</div>
+						[%/param%]
+						[%param *footer%]
+							</div>
+						</div>
+					[%/param%]
+					[%/free_gifts%]
+					[%tracking_code type:'ProductDescription' /%]
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+[%if [@misc7@]%]
+<div class="wrapper-four">
+	<div class="container">
+		[@misc7@]
+	</div>
+</div>
+[%/if%]
+[%if [@config:show_product_reviews@]%]
+	[%thumb_list type:'product_reviews' limit:'5'%]
+		[%param filter_1%][@SKU@][%/param%]
+		[%param *header%]
+		<div class="wrapper-reviews" style="background-image:url('[%ASSET_URL type:'inventory' id:'[@inventory_id@]' thumb:'alt_10' /%]');">
+			<div class="wrapper-reviews-overlay">
+				<div class="wrapper-reviews-content">
+					<div class="container">
+						<div class="row">
+						[%/param%]
+						[%param *body%]
+							<div class="col-xs-12">
+						   		<div class="review-by">
+						            <span>
+										[%set [@data:ratings-count@] = 1 /%]
+										[%while [@data:ratings-count@] <= [@data:score@]%]
+											[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+											<i class="fa fa-star"></i>
+										[%/while%]
+										[%while [@data:ratings-count@] <= 5%]
+											[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+											<i class="fa fa-star-o"></i>
+										[%/while%]
+									</span>
+						            <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+										<meta itemprop="worstRating" content="1">
+										<meta itemprop="ratingValue" content="[@score@]">
+										<meta itemprop="bestRating" content="5">
+									</div>
+						         </div>
+						      <div class="product-reviews"  itemprop="review" itemscope itemtype="http://schema.org/Review">
+								<meta itemprop="itemReviewed" content="[@name@]">
+						        <h4 itemprop="name" class="review-title">[%nohtml%][@title@][%/nohtml%]</h4>
+						        <div itemprop="description" class="review-description">[%nohtml%]"[@review@]"[%/nohtml%]</div>
+						        <div class="review-by">
+						            <span>
+						               [%if [@reviewname@]%]<strong>- <span itemprop="author">[@reviewname@], </span></strong>[%/if%]
+						               <meta itemprop="datePublished" content="[%FORMAT type:'date'%][@insert_date@][%/FORMAT%]">
+						               [%FORMAT type:'date'%][@insert_date@][%/FORMAT%] -
+						            </span>
+						        </div>
+						      </div>
+						   </div>
+						[%/param%]
+						[%param *footer%]
+						</div>
+						<a href="[%URL page:'account' type:'write_review' qs:'item=[@SKU@]'%][%/URL%]" class="btn btn-default btn-post-review">Write a review <i class="fas fa-pencil-alt"></i></a>
+					</div>
+				</div>
+			</div>
+			[%if [@misc6@] %]
+			<p class="location">[@misc6@]</p>
+			[%/if%]
+		</div>
+		[%/param%]
+		[%param *ifempty%]
+		<div class="wrapper-reviews" style="background-image:url('[%ASSET_URL type:'inventory' id:'[@inventory_id@]' thumb:'alt_10' /%]');">
+			<div class="wrapper-reviews-overlay">
+				<div class="wrapper-reviews-content">
+					<div class="container">
+						<h2>Product Reviews</h2>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="product-reviews"  itemprop="review" itemscope itemtype="http://schema.org/Review">
+									<a href="[%URL page:'account' type:'write_review' qs:'item=[@SKU@]'%][%/URL%]" class="btn btn-default btn-post-review">Write a product review <i class="fas fa-pencil-alt"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				[%if [@misc6@] %]
+				<p class="location">[@misc6@]</p>
+				[%/if%]
+			</div>
+		</div>
+		[%/param%]
+	[%/thumb_list%]
+[%/if%]
+[%THUMBNAILS id:'[@SKU@]'%]
+	[%PARAM *body%]
+	[%if [@type@] eq 'alt_9' %]
+	<div class="wrapper-whats-in-the-box">
+		<div>
+			<div>
+				<div class="col-box" style="background-image:url('[%ASSET_URL type:'inventory' id:'[@inventory_id@]' thumb:'alt_9' /%]');">
+				  <h2>What's In The Box</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	[%/if%]
+	[%END PARAM%]
+[%END THUMBNAILS%]
+<div class="container">
+	<div class="row">

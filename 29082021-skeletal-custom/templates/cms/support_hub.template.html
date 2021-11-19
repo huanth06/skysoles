@@ -1,0 +1,177 @@
+<!-- [%load_template file:'cms/includes/sidebar.template.html'/%] -->
+<div class="col-xs-12">
+</div>
+</div></div>
+<div class="wrapper-prod-bg">
+	<p class="text-muted">
+		[%IF [@content_author@]%]
+			Author: [@content_author@] &nbsp;
+		[%/IF%]
+		[%if [@date_posted@] != 0000-00-00 00:00:00%]
+			Date Posted:[%FORMAT type:'date'%][@date_posted@][%/FORMAT%]&nbsp;
+		[%/IF%]
+	</p>
+	<img src="[%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]" class="pull-right"/>
+	<img src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]"  class="pull-right"/>
+	[%advert type:'text' template:'carousel' limit:'10' ad_group:''%]
+		[%param *header%]
+			<div id="homepageCarousel" class="carousel slide">
+				[%if [@total_showing@] > 1%]
+					<ol class="carousel-indicators">
+						[%site_value id:'counter' type:'load'/%]
+					</ol>
+				[%/if%]
+				<div class="carousel-inner">
+		[%/param%]
+		[%param *footer%]
+				</div>
+				[%if [@total_showing@] > 1%]
+					<a class="left carousel-control" href="#homepageCarousel" data-slide="prev">
+						<span class="fa fa-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#homepageCarousel" data-slide="next">
+						<span class="fa fa-chevron-right"></span>
+					</a>
+				[%/if%]
+			</div>
+			<hr>
+		[%/param%]
+		[%param *ifempty%]
+		[%/param%]
+	[%/advert%]
+	[%advert type:'product' limit:'8' template:'' ad_group:''%]
+		[%param *header%]
+			<div class="row">
+		[%/param%]
+		[%param footer%]
+			</div>
+			<hr>
+		[%/param%]
+	[%/advert%]
+	<div class="container our-story-breadcrumb">
+		[%breadcrumb%]
+			[%param *header%]
+				<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+					</li>
+			[%/param%]
+			[%param *body%]
+				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+					<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+				</li>
+			[%/param%]
+			[%param *footer%]
+				</ul>
+			[%/param%]
+		[%/breadcrumb%]
+	</div>
+	[%if ![@form:pgnum@] OR [@form:pgnum@] eq '1'%]
+	<div class="support-hub-content">
+		[%parse%]
+			[@content_description1@]
+		[%/parse%]
+		<div class="title-tabs height-600">
+	        <div class="container">
+	            <div id="over_hidden_rel">
+	                <div id="run_effect"></div>
+	                <div id="menu_tabs" class="menu-tab">
+	                    <div class="link" data-id="#tabs1">
+	                        <div class="inner-link">
+	                            <span class="icon">
+	                                <img src="[%ntheme_asset%]images/icon-sizing.png[%/ntheme_asset%]" alt="icon">
+	                            </span>
+	                            <h3>Sizing</h3>
+	                        </div>
+	                    </div>
+	                    <div class="link" data-id="#tabs2">
+	                        <div class="inner-link">
+	                            <span class="icon">
+	                                <img src="[%ntheme_asset%]images/icon-returns.png[%/ntheme_asset%]" alt="icon">
+	                            </span>
+	                            <h3>Return</h3>
+	                        </div>
+	                    </div>
+	                    <div class="link" data-id="#tabs3">
+	                        <div class="inner-link">
+	                            <span class="icon">
+	                                <img src="[%ntheme_asset%]images/icon-faqs.png[%/ntheme_asset%]" alt="icon">
+	                            </span>
+	                            <h3>Faq's</h3>
+	                        </div>
+	                    </div>
+	                    <div class="link" data-id="#tabs4">
+	                        <div class="inner-link">
+	                            <span class="icon">
+	                                <img src="[%ntheme_asset%]images/icon-shipping.png[%/ntheme_asset%]" alt="icon">
+	                            </span>
+	                            <h3>Shipping</h3>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div id="content_tabs" class="tabs-vertical">
+	                <h3 class="tav-title title-tabs-mobile" data-id="#tabs1">
+	                    <span class="icon">
+	                        <img src="[%ntheme_asset%]images/icon-sizing1.png[%/ntheme_asset%]" alt="icon">
+	                    </span>
+	                    Sizing
+	                </h3>
+	                <div id="tabs1" class="content-tabs tav-content content-sizing">
+	                    [%content_zone id:'support-hub-sizing'%][%end content_zone%]
+	                </div>
+	                <h3 class="tav-title title-tabs-mobile" data-id="#tabs2">
+	                    <span class="icon">
+	                        <img src="[%ntheme_asset%]images/icon-returns1.png[%/ntheme_asset%]" alt="icon">
+	                    </span>
+	                    Returns
+	                </h3>
+	                <div id="tabs2" class="content-tabs tav-content">
+	                    [%content_zone id:'support-hub-returns'%][%end content_zone%]
+	                </div>
+	                <h3 class="tav-title title-tabs-mobile" data-id="#tabs3">
+	                    <span class="icon">
+	                        <img src="[%ntheme_asset%]images/icon-faqs1.png[%/ntheme_asset%]" alt="icon">
+	                    </span>
+	                    Faq's
+	                </h3>
+	                <div id="tabs3" class="content-tabs tav-content">
+	                    [%content_zone id:'support-hub-faqs'%][%end content_zone%]
+	                </div>
+	                <h3 class="tav-title title-tabs-mobile" data-id="#tabs4">
+	                    <span class="icon">
+	                        <img src="[%ntheme_asset%]images/icon-shipping1.png[%/ntheme_asset%]" alt="icon">
+	                    </span>
+	                    Shipping
+	                </h3>
+	                <div id="tabs4" class="content-tabs tav-content">
+	                    [%content_zone id:'support-hub-shipping'%][%end content_zone%]
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+		[%parse%]
+		<div class="content-right" style="position: relative;display: inline-block; width: 100%; overflow: hidden;" >
+			<div class="section-text " data-aos="fade-down" data-aos-duration="1125" data-aos-easing="linear">
+				<div class="container">
+		            <div class="box-flex">
+		                [@content_description2@]
+		            </div>
+		        </div>
+			</div>
+	    </div>
+		<div class="content-left" style="position: relative;display: inline-block; width: 100%; overflow: hidden;" >
+			<div class="section-text bg-gray" data-aos="fade-down" data-aos-duration="1125" data-aos-easing="linear">
+		        <div class="container">
+		            <div class="box-flex">
+		                [@content_description3@]
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+		[%/parse%]
+	</div>
+	[%/if%]
+	
+</div>
+<div><div>

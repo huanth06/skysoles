@@ -1,0 +1,13 @@
+<li itemtype="http://schema.org/Article" >
+	<input id="tabs-mobile-[@count@]" class="tabs-mobile" name="tabs-mobile" [%if [@count@] eq 0%]checked=""[%/if%] type="radio">
+	<label class="crew-avt" for="tabs-mobile-[@count@]">
+		<p class="crew-image"><img src="[%ASSET_URL type:'content' id:'[@content_id@]' default:'/assets/default_product.gif'%][%END ASSET_URL%]" alt=""></p>
+		<div class="crew-bottom">
+			<h3 class="crew-name">[@content_name@]</h3>
+			<p class="crew-job">[@content_short_description1@]</p>
+		</div>
+	</label>
+	<div class="crew-info" id="crew-info1">
+		[@content_description1@]
+	</div>
+</li>
