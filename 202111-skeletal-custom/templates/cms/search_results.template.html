@@ -1,0 +1,93 @@
+</div>
+</div>
+
+
+<div class="product-list-page">
+	<div class="container container-custom">
+		<div class="mb-box">
+			[%SET [@page_type@]='search_results'/%]
+			<ul class="breadcrumb mb" itemscope itemtype="http://schema.org/BreadcrumbList">
+				[%breadcrumb%]
+				[%PARAM *header%]
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+					</li>
+					[%/PARAM%]
+					[%PARAM *body%]
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+					</li>
+					[%/PARAM%]
+					[%PARAM *footer%]
+				[%/PARAM%]
+				[%/breadcrumb%]
+			</ul>
+		</div>
+
+
+		<div class="title pad_lr_20 visible-xs">
+			<div class="title-wrapper">
+				<h1 class="page-header">
+					[@content_name@]
+				</h1>
+				[%if [@content_description1@] %] 
+				<div class="content">
+					[@content_description1@]
+				
+				</div>
+			
+				[%/if%]
+			</div>
+		</div>
+
+		[%load_template file:'cms/includes/sidebar.template.html'/%]
+	
+	
+
+	[%FILTER ID:'keywords' if:'ne' value:' '%]
+		[%THUMB_LIST type:'products' limit:'[@config:THUMB_LIMIT@]'%]
+			[%PARAM template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/PARAM%]
+				[%PARAM *header%]
+					<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
+						<div class="row">
+					[%/PARAM%]
+					[%PARAM *footer%]
+						</div>
+					</div>
+					[%IF [@total_results@] > [@config:thumb_limit@]%]
+						<div class="row">
+							<div class="col-xs-12">
+								<hr />
+								<div class="text-center">
+									<ul class="pagination">
+										[%paging limit:'3'%]
+											[%PARAM *previous_page%]<li><a href="[@URL@]"><i class="fa fa-chevron-left"></i></a></li>[%/PARAM%]
+											[%PARAM *goback_pages%]<li><a href="[@URL@]">[@PAGE@]</a></li>[%/PARAM%]
+											[%PARAM *current_page%]<li class="active"><a href="[@URL@]">[@PAGE@]</a></li>[%/PARAM%]
+											[%PARAM *gonext_pages%]<li><a href="[@URL@]">[@PAGE@]</a></li>[%/PARAM%]
+											[%PARAM *next_page%]<li><a href="[@URL@]"><i class="fa fa-chevron-right"></i></a></li>[%/PARAM%]
+										[%/paging%]
+									</ul>
+								</div>
+								<hr />
+							</div>
+						</div>
+					[%/IF%]
+				[%/PARAM%]
+				[%PARAM *ifempty%]
+					<div class="row">
+						<div class="col-xs-12">
+							[%FILTER ID:'keywords' if:'ne' value:''%]
+								<p>Search was unable to find any product results for '[%NOHTML%][%FILTER ID:'keywords'/%][%/NOHTML%]' you may have typed your word incorrectly, or are being too specific. Try using a broader search phrase.</p>
+							[%/FILTER%]
+							[%FILTER ID:'keywords' if:'eq' value:''%]
+								<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
+							[%/FILTER%]
+							<hr />
+						</div>
+					</div>
+				[%/PARAM%]
+			[%/THUMB_LIST%]
+		</div>
+	[%/FILTER%]
+</div>

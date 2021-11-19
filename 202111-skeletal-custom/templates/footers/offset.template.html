@@ -1,0 +1,195 @@
+			</div>
+		</div>
+		[%if [@config:show_newsletter_subscribe@]%]
+		<div class="wrapper-newsletter">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2>Sign up here for news and updates</h2>
+						<form method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]">
+							<input type="hidden" name="list_id" value="1">
+							<input type="hidden" name="opt_in" value="y">
+							<div class="input-group">
+								<input name="inp-email" class="form-control" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required/>
+								<input name="inp-submit" type="hidden" value="y" />
+								<input name="inp-opt_in" type="hidden" value="y" />
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"><i class="fa fa-send"></i></button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		[%/if%]
+		<div class="wrapper-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-8">
+						<div class="row">
+							[%menu id:'web_footer'%]
+								[%param *level_1%]
+									<div class="col-xs-12 col-sm-4">
+										<h4>[@name@]</h4>
+										<ul class="nav nav-pills nav-stacked">
+											[@next_level@]
+										</ul>
+									</div>
+								[%/param%]
+								[%param *level_2%]
+									<li><a href="[@url@]">[@name@]</a></li>
+								[%/param%]
+							[%/menu%]
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-4">
+						<h4>Contact Info</h4>
+						<p class="email"><i class="fa fa-envelope"></i> <a href="mailto:[@CONFIG:COMPANY_EMAIL@]">[@CONFIG:COMPANY_EMAIL@]</a></p>
+						<p class="phone"><i class="fa fa-phone"></i> <a href="tel:[%format type:'text' trim:'a'%][@CONFIG:COMPANY_PHONE@][%/format%]">[@CONFIG:COMPANY_PHONE@]</a></p>
+						<ul class="list-inline list-social" itemscope itemtype="http://schema.org/Organization">
+							<meta itemprop="url" content="[@config:home_url@]"/>
+							<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
+							<meta itemprop="name" content="[@config:company_name@]"/>
+							[%if [@config:facebook_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank"><i class="fa fa-facebook-square text-facebook"></i></a></li>
+							[%/if%]
+							[%if [@config:twitter_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank"><i class="fa fa-twitter-square text-twitter"></i></a></li>
+							[%/if%]
+							[%if [@config:googleplus_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank"><i class="fa fa-google-plus-square text-google-plus"></i></a></li>
+							[%/if%]
+							[%if [@config:youtube_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank"><i class="fa fa-youtube-square text-youtube"></i></a></li>
+							[%/if%]
+							[%if [@config:instagram_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank"><i class="fa fa-instagram text-instagram"></i></a></li>
+							[%/if%]
+							[%if [@config:pinterest_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank"><i class="fa fa-pinterest-square text-pinterest"></i></a></li>
+							[%/if%]
+							[%if [@config:tumblr_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank"><i class="fa fa-tumblr-square text-tumblr"></i></a></li>
+							[%/if%]
+							[%if [@config:linkedin_account_id@]%]
+							<li><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank"><i class="fa fa-linkedin-square text-linkedin"></i></a></li>
+							[%/if%]
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper-address">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-9 hidden-xs">
+						[%payment_methods ignore_balance:'1'%]
+							[%param header%]
+								<ul class="list-inline">
+							[%/param%]
+							[%param *body%]
+								[%if [@name@] like 'American Express'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-americanexpress"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'Visa'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-visa"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'MasterCard'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-mastercard"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'Discover'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-discover"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'Diners'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-diners"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'Cheque'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-cheque"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'Money Order'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-moneyorder"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'Direct Deposit' || [@name@] like 'Bank Deposit'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-directdeposit"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'bpay'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-bpay"></div>
+										</div>
+									</li>
+								[%/if%]
+								[%if [@name@] like 'paypal'%]
+									<li>
+										<div class="payment-icon-container">
+											<div class="payment-icon payment-icon-paypal"></div>
+										</div>
+									</li>
+								[%/if%]
+							[%/param%]
+							[%param *footer%]
+								</ul>
+							[%/param%]
+						[%/payment_methods%]
+					</div>
+					<div class="col-sm-3">
+						<address>
+							<span>Copyright &copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@]</span>
+							E-commerce Software By <a href="http://www.neto.com.au" title="E-commerce Shopping Cart" target="_blank">Neto</a>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>		
+</div>
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+[%cdn_asset html:'1' type:'js' library:'jquery' version:'1.11.3'%]jquery.min.js[%/cdn_asset%]
+[%cdn_asset html:'1' type:'js' library:'fancybox' version:'2.1.5'%]jquery.fancybox.pack.js[%/cdn_asset%]
+[%NETO_JS html:'1' id:'main' /%]
+[%cdn_asset html:'1' type:'js' library:'bootstrap' version:'3.3.6'%]bootstrap.min.js[%/cdn_asset%]
+<script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%/ntheme_asset%]"></script>
+[%cdn_asset html:'1' type:'js' library:'jquery_ui' version:'1.11.1'%]js/jquery-ui-1.8.18.custom.min.js[%/cdn_asset%]
+[%SITE_VALUE id:'footer_javascript' type:'load'/%]
+<!-- Analytics -->
+[%tracking_code type:'Visitor' /%]
+<div class="npopup" style=""> <a href="javascript:void(0);" class="npopup-btn-close"></a>
+	<div class="npopup-body">
+	</div>
+</div>
+<div class="nactivity"><i class="fa fa-spinner fa-spin fa-inverse fa-3x fa-fw"></i></div>
+</body>
+</html>

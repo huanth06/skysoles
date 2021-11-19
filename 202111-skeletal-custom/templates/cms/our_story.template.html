@@ -1,0 +1,97 @@
+
+<style>
+
+
+</style>
+
+</div></div>
+<div class="wrapper-prod-bg our-story" >
+	<div class="first-content paralax-bg-no-scrolling parallax-fix-ipad" style="background-image: url([%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%])" >
+		<div class="overplay"></div>	
+		<div class="container" >
+			<div class="row">
+				<div class="main-title text-left">
+					<h1>
+						[@content_name@]
+					</h1>
+					<div class="short">
+						<p>[@content_short_description1@]</p>
+					</div>
+					 [@content_description1@]
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="secondary-content">
+		<div class="container">
+			<div class="row">
+				<div class="wrap-content">
+
+					[@content_description2@]
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="paralax-bg" data-parallax="scroll" data-position="center"  data-bleed="10" data-image-src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%]" data-natural-width="1920" data-natural-height="850"></div>
+	<div class="our-story-accordion">
+		<div class="container">
+			<div class="row">
+					[%thumb_list type:'content' content_type:'' template:'our-story-accordion' sortby:'sortorder2,name'  limit:'20' %]
+					[%param *header%]
+					<div></div>
+						<ul class="accordion-list">
+
+					[%/param%]
+					[%param *footer%]
+						</ul>
+					</div>
+					[%/param%]
+				[%/thumb_list%]	
+			</div>
+		</div>
+	</div>
+	<div class="cor_footer_buttons">
+		<div class="container">
+			<div class="row">
+				[%content_zone id:'cor_footer_buttons'%][%end content_zone%]
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+[%site_value id:'footer_javascript'%]
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".js-plus-accordion").click(function(){
+			$('.description.pc').hide();
+			$('.js-minus-accordion').hide();
+			$('.js-plus-accordion').show();
+			$('#pc-' + $(this).attr('data-id')).slideDown('show');
+			$(this).prev().show();
+			$(this).hide();
+		})
+		$(".js-minus-accordion").click(function(){
+			$('#pc-' + $(this).attr('data-id')).slideUp('show');
+			$(this).next().show();
+			$(this).hide();
+			$('.description.pc').hide('show');
+		});
+
+		$(".js-plus-accordion-sp").click(function(){
+				$('.description.mb').hide();
+			$('.js-minus-accordion-sp').hide();
+			$('.js-plus-accordion-sp').show();
+			$('#sp-' + $(this).attr('data-id')).slideDown('show');
+			$('.js-minus-accordion-sp.' + $(this).attr('data-id')).show();
+			$(this).hide();
+		})
+		$(".js-minus-accordion-sp").click(function(){
+			$('#sp-' + $(this).attr('data-id')).slideUp('show');
+			$('.js-plus-accordion-sp.' + $(this).attr('data-id')).show();
+			$(this).hide();
+			$('.description.mb').hide('show');
+		})
+	});
+	</script>
+	[%/site_value%]
