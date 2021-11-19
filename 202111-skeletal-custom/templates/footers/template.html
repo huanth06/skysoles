@@ -86,7 +86,7 @@
             <p class="email"><i class="fa fa-envelope"></i> <a href="mailto:[@CONFIG:COMPANY_EMAIL@]">[@CONFIG:COMPANY_EMAIL@]</a></p>
             <p class="phone"><i class="fas fa-phone"></i> <a href="tel:[%format type:'text' trim:'a'%][@CONFIG:COMPANY_PHONE@][%/format%]">+ [@CONFIG:COMPANY_PHONE@]</a></p>
             <p class="abn"><i class="fas fa-info-circle"></i>ABN <a style="color: #FFF;">[@CONFIG:COMPANY_ABN@]</a></p>
-            <ul class="list-inline list-social" itemscope itemtype="http://schema.org/Organization">
+            <ul class="list-inline list-social visible-xs" itemscope itemtype="http://schema.org/Organization">
 					<meta itemprop="url" content="[@config:home_url@]"/>
 					<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
 					<meta itemprop="name" content="[@config:company_name@]"/>
@@ -116,9 +116,43 @@
 					[%/if%]
 				</ul>
          </div>
-		<address>
+		<address class="visible-xs">
 			<span>&copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@]</span>
 		</address>
+		<div class="col-xs-12 visible-sm visible-md visible-lg address-social-dsk">
+			<address>
+				<span>&copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@]</span>
+			</address>
+			<ul class="list-inline list-social" itemscope itemtype="http://schema.org/Organization">
+				<meta itemprop="url" content="[@config:home_url@]"/>
+				<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
+				<meta itemprop="name" content="[@config:company_name@]"/>
+				[%if [@config:facebook_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank"><i class="fa fa-facebook-square text-facebook"></i></a></li>
+				[%/if%]
+				[%if [@config:twitter_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank"><i class="fa fa-twitter-square text-twitter"></i></a></li>
+				[%/if%]
+				[%if [@config:googleplus_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank"><i class="fa fa-google-plus-square text-google-plus"></i></a></li>
+				[%/if%]
+				[%if [@config:youtube_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank"><i class="fa fa-youtube-square text-youtube"></i></a></li>
+				[%/if%]
+				[%if [@config:instagram_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank"><i class="fa fa-instagram text-instagram"></i></a></li>
+				[%/if%]
+				[%if [@config:pinterest_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank"><i class="fa fa-pinterest-square text-pinterest"></i></a></li>
+				[%/if%]
+				[%if [@config:tumblr_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank"><i class="fa fa-tumblr-square text-tumblr"></i></a></li>
+				[%/if%]
+				[%if [@config:linkedin_account_id@]%]
+				<li><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank"><i class="fa fa-linkedin-square text-linkedin"></i></a></li>
+				[%/if%]
+			</ul>
+		</div>
       </div>
    </div>
 </div>
