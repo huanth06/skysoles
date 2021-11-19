@@ -232,8 +232,25 @@
       } else {
         this.visibility = 'hidden';
       }
+      console.log('scrollTop:'+ scrollTop);
+      const getHeight =  $('.pageHeaderMenu--spacing-helper').height();
+     if(getHeight > 0){
+         this.$mirror.css({
+        transform: 'translate3d('+this.mirrorLeft+'px, '+(this.mirrorTop - overScroll)+'px, 0px)',
+        visibility: this.visibility,
+        height: this.boxHeight + 131,
+        width: this.boxWidth
+      });
 
-      this.$mirror.css({
+      this.$slider.css({
+        transform: 'translate3d('+this.offsetLeft+'px, '+this.offsetTop+'px, 0px)',
+        position: 'absolute',
+        height: this.imageHeight ,
+        width: this.imageWidth + 131,
+        maxWidth: 'none'
+      });
+     }else{
+         this.$mirror.css({
         transform: 'translate3d('+this.mirrorLeft+'px, '+(this.mirrorTop - overScroll)+'px, 0px)',
         visibility: this.visibility,
         height: this.boxHeight,
@@ -247,6 +264,9 @@
         width: this.imageWidth,
         maxWidth: 'none'
       });
+     }
+      console.log('getHeight:'+ getHeight);
+     
     }
   });
 
