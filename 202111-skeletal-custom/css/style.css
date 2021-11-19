@@ -2277,6 +2277,10 @@ fieldset[disabled] .btn-default.active {
 
 		line-height: 35px;
 	}
+	.wrapper-gallery-gossip .item:first-child .gallery-caption{
+		border-top: 1px solid #000;
+		margin-top: 20px;
+	}
 	.gallery-caption .name{
 		line-height: 24px;
 		height: auto;
@@ -3533,9 +3537,6 @@ fieldset[disabled] .btn-default.active {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
-#accordion #productFeatures ul li{
-	font-size: 14px;
-}
 #productFeatures .panel-body{
 	padding: 15px 0px;
 }
@@ -3678,8 +3679,6 @@ fieldset[disabled] .btn-default.active {
 
 #accordion ul > li {
 	margin: 8px 0 0;
-	font-size: 16px;
-	line-height: 16px;
 	color: #333;
 	padding: 0 0 0 20px;
 	position: relative;
@@ -3831,10 +3830,7 @@ fieldset[disabled] .btn-default.active {
 		font-size: 23px;
 		margin-top: 20px;
 	}
-	.wrapper-reviews h4 ,  .wrapper-reviews .blockquote div{
-		font-size: 16px;
-	}
-	#accordionReviews blockquote span[itemprop="description"]{
+	.wrapper-reviews h4 {
 		font-size: 16px;
 	}
 	.wrapper-reviews .wrapper-reviews-content > .container > .row{
@@ -4188,7 +4184,8 @@ fieldset[disabled] .btn-default.active {
 }
 @media (max-width:500px){
 	.thumbnail-four{
-		padding: 0 5px;
+	    padding: 0 15px;
+   		width: 33.33%;
 	}
 	.wrapper-four .thumbnail-four a.image img{
 		max-width: 100%;
@@ -6701,7 +6698,7 @@ table.blog-img span {
 	}
 
 	.wrapper-header {
-		padding:  5px 0;
+		padding:  20px 0;
 	}
 	.wrapper-inner-header img{
 		max-width: 80px
@@ -6818,9 +6815,6 @@ table.blog-img span {
 		margin: 0px;
 	}
 
-	.wrapper-homepage-add h3{
-		font-size: 30px ;
-	}
 	.wrapper-homepage-advert .adverst-content .content {
 		margin-bottom: 33px;
 	}
@@ -6864,7 +6858,6 @@ table.blog-img span {
 	.wrapper-homepage-add p{
 		margin-bottom: 20px;
 		margin-top: 40px;
-		font-size: 22px;
 	}
 
 	.wrapper-homepage-add p{
@@ -7132,12 +7125,6 @@ table.blog-img span {
 	.innovation-box-image {
 		padding-top: 50px;
 	}
-	.innovation-box-text p {
-		font-size: 16px;
-	}
-	.page-custom .main-title p {
-		font-size: 16px;
-	}
 	.page-custom .main-title h1 {
 		font-size: 32px;
 	}
@@ -7318,7 +7305,7 @@ table.blog-img span {
 	.menu-sp > li > a{
 		font-size: 20px;
 		font-weight: 500;
-		font-family: 'Montserrat', sans-serif;
+		font-family: "Ubuntu", Helvetica, Arial, sans-serif;
 		color: #000;
 	}
 	.menu-sp > li:last-child{
@@ -7523,7 +7510,7 @@ table.blog-img span {
 		color: #000000;
 		align-items: center;
 		padding:  20px 0px;
-
+		font-family: "Ubuntu", Helvetica, Arial, sans-serif;
 	}
 
 	.pentagon-menu{
@@ -7622,7 +7609,7 @@ table.blog-img span {
 		align-items: center;
 		padding:  20px 0px;
 		font-weight: 500;
-
+		font-family: "Ubuntu", Helvetica, Arial, sans-serif;
 	}
 	#n_customer_account .linetop .container{
 		padding: 0px;
