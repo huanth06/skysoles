@@ -7262,10 +7262,10 @@ table.blog-img span {
 }
 .login-custom label{
 	display: inline-block;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	font-weight: 400;
 	font-size: 16px;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 .login-custom .form-group .text-danger{
 	font-size: 14px;
@@ -7479,8 +7479,8 @@ table.blog-img span {
 	font-weight: 600;
 	font-size: 16px;
 }
-.form-group.pb-custom{
-	margin-bottom: 37px;
+.form-group.pb-custom .checkbox{
+	margin: 0 0 20px
 }
 @media(min-width:  992px){
 	.pentagon-menu{
