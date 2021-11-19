@@ -4678,7 +4678,7 @@ button.list-group-item:focus {
 }
 
 .wrapper-footer {
-	padding: 15px 0 25px;
+	padding: 15px 0 10px;
 	background: #363636;
 	float: left;
 	width: 100%;
@@ -4744,6 +4744,12 @@ p.abn {
 		margin-bottom: 40px;
 	}
 }
+.address-social-dsk{
+	margin-bottom: 20px;
+}
+.wrapper-footer .address-social-dsk .list-social{
+	float: right;
+}
 
 .list-social > li > a {
 	display: block;
@@ -4789,6 +4795,9 @@ address {
 	text-align: left;
 	float: left;
 }
+.address-social-dsk address{
+	margin: 10px 0 0;
+}
 
 address span {
 	display: inline-block;
@@ -4802,6 +4811,10 @@ address a {
 	address {
 		margin: 0px;
 		padding: 20px 25px 15px 25px;
+	}
+	.address-social-dsk address{
+		margin: 10px 0 0;
+		padding: 0;
 	}
 }
 
@@ -7181,6 +7194,9 @@ table.blog-img span {
 @media (max-width: 767px){
 	.wrapper-gallery-gossip{
 		padding-top: 0;
+	}
+	.contact-info ul.list-social{
+		float: left;
 	}
 }
 @media (max-width: 420px){
