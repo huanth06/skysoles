@@ -4,9 +4,6 @@
 	[%set [@image@] %][%asset_url type:'content' id:'[@content_id@]' default:'na' /%][%/set%]
 	[% if [@image@] not like 'na' %]
 	<div class="paralax-bg innovation-box-image" data-parallax="scroll" data-position="center"  data-bleed="10" data-image-src="[%asset_url type:'content' id:'[@content_id@]' default:''/%]"></div>
-	<div class="parallax-mb banner-next" style="
-	    background-image: url([%asset_url type:'content' id:'[@content_id@]' default:''/%]);
-	"></div>
 	[%/ if%]
 	<div class="bg-white">
 		<div class="container">

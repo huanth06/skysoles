@@ -7187,7 +7187,7 @@ table.blog-img span {
 	.page-custom{
 		padding-bottom: 30px;
 	}
-	
+
 }
 @media (max-width: 767px){
 	.wrapper-gallery-gossip{
@@ -7708,22 +7708,8 @@ table.blog-img span {
 @media(min-width:  1200px){
 	
 }
-.innovation-container .parallax-mb{display: none;}
-@media (max-width: 1399px){
-	.innovation-container .parallax-mb{display: block;}
-	.innovation-container .parallax-mb{
-		background-position: center;
-	}
-	.innovation-container .parallax-mb img{
-		display: none;
-	}
-	.innovation-container .banner-first{
-		height: 687px;
-	}
-	.innovation-container .banner-next{
-		height: 457px;
-	}
 
+@media (max-width: 1399px){
 	.parallax-fix-ipad{
 		background-size: auto;
 		background-repeat: no-repeat;
