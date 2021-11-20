@@ -3438,8 +3438,19 @@ fieldset[disabled] .btn-default.active {
 .extra-options .buying-options .col-xs-12.col-md-9{
 	padding-left: 0;
 }
-.alt-box{display: inline-block; width: 100%; text-align: center; font-size: 16px; font-family: "Ubuntu"; border: 2px solid #075197; background: #dff1ff; margin-bottom: 15px;}
-.alt-box span{font-weight: 700; color: #075197; line-height: 36px;}
+.alt-box{display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Ubuntu";
+    border: 0;
+    background: #ff9900;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    padding: 8px;}
+.alt-box span{    font-weight: 400;
+    color: #FFF;
+    line-height: 24px;}
 .alt-box span .far{margin-right: 5px;}
 @media (max-width: 1199px){
 	.extra-options .buying-options .btn::after{
