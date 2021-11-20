@@ -18,7 +18,7 @@
 	[%set [@alt@] %] [%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'no_image'%][%END ASSET_URL%][%/set%]
 	[% if [@alt@] ne 'no_image' %]
 	<div class="relative">
-		<div class="paralax-bg pull-right full-width main-image" data-parallax="scroll" data-position="center"  data-bleed="10" data-image-src="[@alt@]" data-natural-width="1919" data-natural-height="604" style="max-height: 459px;"></div>
+		<div class="paralax-bg pull-right full-width main-image" data-parallax="scroll" data-position="center"  data-bleed="10" data-image-src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'no_image'%][%END ASSET_URL%]" data-natural-width="1918" data-natural-height="667" ></div>
 	</div>
 	[%/if%]
 	<div class="container">
