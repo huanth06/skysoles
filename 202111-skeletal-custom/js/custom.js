@@ -279,7 +279,7 @@ $('.js-lv1').click(function() {
         $(this).find('.dropdown-menu').removeClass('active');
 
     } else {
-        $('.level_1>.js-lv1').removeClass('active');
+        $('.level_1.js-lv1').removeClass('active');
         $('.level_1>.dropdown-menu').removeClass('active');
         $(this).toggleClass('active');
 

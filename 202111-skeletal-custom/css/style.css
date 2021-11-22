@@ -7187,7 +7187,17 @@ table.blog-img span {
 	.page-custom{
 		padding-bottom: 30px;
 	}
-
+	.blog-page .parallax-mb{
+		display: none;
+	}
+	.blog-page .parallax-mb-bg{
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.blog-page .parallax-mb-bg.banner-first{
+		min-height: 665px;
+		width: 100%;
+	}
 }
 @media (max-width: 767px){
 	.wrapper-gallery-gossip{
@@ -7315,7 +7325,7 @@ table.blog-img span {
 @media (max-width: 1207px){
 	.menu-sp > li > a{
 		font-size: 20px;
-		font-weight: 500;
+		font-weight: 400;
 		font-family: "Ubuntu", Helvetica, Arial, sans-serif;
 		color: #000;
 	}
@@ -7619,7 +7629,7 @@ table.blog-img span {
 		color: #000000;
 		align-items: center;
 		padding:  20px 0px;
-		font-weight: 500;
+		font-weight: 400;
 		font-family: "Ubuntu", Helvetica, Arial, sans-serif;
 	}
 	#n_customer_account .linetop .container{
