@@ -178,41 +178,41 @@
 												<li><a href="#" onclick="dc_select_currency('ZAR');"><img src="[%ntheme_asset%]img/flags/south-africa.png[%/ntheme_asset%]" width="32px" height="32px" Alt="View prices in South African Rand" title="View prices in South African Rand" style="cursor: hand; cursor:pointer;"/> <span>ZAR</span></a></li>
 											</ul>
 											<form method="post" action="" class="hidden">
-								<select name="ship_country">
-										<option value="AU" class="shipping-country" data-shipping="AU"> <a href="#"><img class="currency-flag" src="/assets/images/flags/AUD.png">Australia</a></option>
-										<option value="US" class="shipping-country" data-shipping="US"> <a href="#"><img class="currency-flag" src="/assets/images/flags/USD.png">United States</a></option>
-										<option value="ES" class="shipping-country" data-shipping="ES"> <a href="#"><img class="currency-flag" src="/assets/images/flags/EUR.png">Europe</a></option>
-										<option value="GB" class="shipping-country" data-shipping="GB"> <a href="#"><img class="currency-flag" src="/assets/images/flags/GBP.png">Great Britain</a></option>
-										<option value="JP" class="shipping-country" data-shipping="JP"> <a href="#"><img class="currency-flag" src="/assets/images/flags/JPY.png">Japan</a></option>
-										<option value="CA" class="shipping-country" data-shipping="CA"> <a href="#"><img class="currency-flag" src="/assets/images/flags/CAD.png">Canada</a></option>
-										<option value="NZ" class="shipping-country" data-shipping="NZ"> <a href="#"><img class="currency-flag" src="/assets/images/flags/NZD.png">New Zealand</a></option>
-										<option value="SG" class="shipping-country" data-shipping="SG"> <a href="#"><img class="currency-flag" src="/assets/images/flags/SGD.png">Singapore</a></option>
-										<option value="CN" class="shipping-country" data-shipping="CN"> <a href="#"><img class="currency-flag" src="/assets/images/flags/CNY.png">China</a></option>
-								</select>
-								<input type="submit" class="btn btn-primary shipping-save country-select-submit" value="Save" />
-						</form>
+												<select name="ship_country">
+														<option value="AU" class="shipping-country" data-shipping="AU"> <a href="#"><img class="currency-flag" src="/assets/images/flags/AUD.png">Australia</a></option>
+														<option value="US" class="shipping-country" data-shipping="US"> <a href="#"><img class="currency-flag" src="/assets/images/flags/USD.png">United States</a></option>
+														<option value="ES" class="shipping-country" data-shipping="ES"> <a href="#"><img class="currency-flag" src="/assets/images/flags/EUR.png">Europe</a></option>
+														<option value="GB" class="shipping-country" data-shipping="GB"> <a href="#"><img class="currency-flag" src="/assets/images/flags/GBP.png">Great Britain</a></option>
+														<option value="JP" class="shipping-country" data-shipping="JP"> <a href="#"><img class="currency-flag" src="/assets/images/flags/JPY.png">Japan</a></option>
+														<option value="CA" class="shipping-country" data-shipping="CA"> <a href="#"><img class="currency-flag" src="/assets/images/flags/CAD.png">Canada</a></option>
+														<option value="NZ" class="shipping-country" data-shipping="NZ"> <a href="#"><img class="currency-flag" src="/assets/images/flags/NZD.png">New Zealand</a></option>
+														<option value="SG" class="shipping-country" data-shipping="SG"> <a href="#"><img class="currency-flag" src="/assets/images/flags/SGD.png">Singapore</a></option>
+														<option value="CN" class="shipping-country" data-shipping="CN"> <a href="#"><img class="currency-flag" src="/assets/images/flags/CNY.png">China</a></option>
+												</select>
+												<input type="submit" class="btn btn-primary shipping-save country-select-submit" value="Save" />
+											</form>
 
-						[%site_value id:'footer_javascript'%]
-									<script>
-										function updateCountry() {
-												//Get country code from dynamic converter field
-											var countryCode = $('#selected_currency_3').text();
-												//Append the corresponding image.
-											}
-											$('.single-country').click(function(){
-												updateCountry();
-												var currentShipping = $(this).data("shipping");
-												$('.shipping-country[data-shipping="' + currentShipping + '"]').attr('selected', 'selected');
-												$('.country-select-submit').trigger('click');
-											});
-											$( document ).ready(function() {
-											//SetTimeout is used so that the dynamic converter script has time to run.
-											setTimeout(function() {
-											updateCountry();
-													}, 2000);
-											});
-									</script>
-								 [%/site_value%]
+											[%site_value id:'footer_javascript'%]
+												<script>
+													function updateCountry() {
+															//Get country code from dynamic converter field
+														var countryCode = $('#selected_currency_3').text();
+															//Append the corresponding image.
+														}
+														$('.single-country').click(function(){
+															updateCountry();
+															var currentShipping = $(this).data("shipping");
+															$('.shipping-country[data-shipping="' + currentShipping + '"]').attr('selected', 'selected');
+															$('.country-select-submit').trigger('click');
+														});
+														$( document ).ready(function() {
+														//SetTimeout is used so that the dynamic converter script has time to run.
+														setTimeout(function() {
+														updateCountry();
+																}, 2000);
+														});
+												</script>
+											 [%/site_value%]
 										</div>
 									</div>
 								</div>

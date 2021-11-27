@@ -2078,7 +2078,6 @@ fieldset[disabled] .btn-default.active {
 .wrap-blog-conts p
 {
 	color: #515151 ;
-	font-size: 16px;
 	line-height: 24px;
 	overflow: hidden;
 	display: -webkit-box;
@@ -3444,12 +3443,12 @@ fieldset[disabled] .btn-default.active {
     font-size: 15px;
     font-family: "Ubuntu";
     border: 0;
-    background: #ff9900;
+    background: #FFF;
     margin-bottom: 15px;
     border-radius: 50px;
     padding: 8px;}
 .alt-box span{    font-weight: 400;
-    color: #FFF;
+    color: #515151;
     line-height: 24px;}
 .alt-box span .far{margin-right: 5px;}
 @media (max-width: 1199px){
@@ -6709,10 +6708,10 @@ table.blog-img span {
 	}
 
 	.wrapper-header {
-		padding:  20px 0;
+		padding:  10px 0;
 	}
 	.wrapper-inner-header img{
-		max-width: 80px
+		max-height: 27px
 	}
 
 	.wrapper-inner-header>div{
@@ -7195,7 +7194,7 @@ table.blog-img span {
 		background-repeat: no-repeat;
 	}
 	.blog-page .parallax-mb-bg.banner-first{
-		min-height: 665px;
+		min-height: 545px;
 		width: 100%;
 	}
 }
