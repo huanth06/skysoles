@@ -1088,8 +1088,6 @@ fieldset[disabled] .btn-default.active {
 }
 .page-custom .content-wrap p{
 	color: #515151;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
 	margin-bottom: 30px;
 }
 .page-custom .main-title h1{
@@ -1099,7 +1097,6 @@ fieldset[disabled] .btn-default.active {
 }
 .page-custom .main-title p{
 	color: #004996;
-	font-family: 'Ubuntu', sans-serif;
 }
 .page-custom .main-title{
 	max-width: 939px;
@@ -1305,9 +1302,6 @@ fieldset[disabled] .btn-default.active {
 }
 .innovation-box-text p{
 	color: #515151;
-	line-height: 24px;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
 
 }
 .innovation-box-text-content{
@@ -1832,8 +1826,6 @@ fieldset[disabled] .btn-default.active {
 	flex-wrap:  wrap;
 }
 .wrapper-homepage-add p{
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
 	color: #004996;
 
 }
@@ -5673,8 +5665,6 @@ table.blog-img span {
 		font-weight: 500;
 	}
 	.product-list-page .title .content, .product-list-page .title .content p {
-		font-family: 'Montserrat', sans-serif;
-		line-height: 1.5;
 		color: #004996;
 		max-width: 641px;
 	}
@@ -8334,7 +8324,6 @@ body.add-padding .bg-white{
 .page-cor-overview .main-title p {
 	line-height: 47px;
 	color: #fff;
-	font-family: 'Montserrat', sans-serif;
 }
 
 .page-cor-overview .main-title{
@@ -8343,12 +8332,11 @@ body.add-padding .bg-white{
 }
 
 .page-cor-overview .main-title a{
-	font-weight: 500;
 	color: #fff;
 	line-height: normal;
+}
+.page-cor-overview .main-title a:hover{
 	text-decoration: underline;
-	text-decoration-color: #807470;
-	text-underline-position: under;
 }
 .page-cor-overview .first-content  .arrow-down {
 	position: absolute;
@@ -8779,10 +8767,7 @@ body.add-padding .bg-white{
 	margin-bottom: 25px;
 }
 .our-story .secondary-content p, .our-story .secondary-content .content{
-	line-height: 24px;
 	color:  #515151;
-	font-weight: 500;
-	font-family: 'Montserrat', sans-serif;
 }
 .our-story .secondary-content ul{
 	padding-left: 0px;
