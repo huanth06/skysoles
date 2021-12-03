@@ -1649,7 +1649,6 @@ p {
 }
 
 .btn {
-    height: 52px;
     border-radius: 26px;
     font-size: 22px;
 }
@@ -3722,7 +3721,6 @@ select[multiple].input-lg {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: 60px;
     border-radius: 50px 50px;
 }
 
@@ -3835,7 +3833,6 @@ fieldset[disabled] .btn-default.focus {
     color: #ffffff;
     background-color: #004996;
     border-color: #004996;
-    height: 60px;
     padding: 0px 45px;
     border-radius: 60px 60px;
     border: 0px;
