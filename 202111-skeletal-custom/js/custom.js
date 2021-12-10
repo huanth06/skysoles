@@ -389,3 +389,30 @@ function imageSwap2() {
         $(myImage).attr('src', currentSRC);
     }
 }
+
+// Parallax Data-API
+  
+  if($( window ).width() > 1399 ){
+    $( function () { 
+      $('[data-parallax="scroll"]').parallax(); 
+    });
+  }
+  else{
+    $( function () { 
+      $('.paralax-bg').hide();
+    });
+  }
+
+$(window).on("resize", function () {
+  if($( window ).width() <= 1399 ){
+    $( function () { 
+      $('[data-parallax="scroll"]').hide(); 
+      $(".parallax-mirror").hide();
+    });
+  }else{
+    $( function () { 
+      $('[data-parallax="scroll"]').show(); 
+      $(".parallax-mirror").show();
+    });
+  }
+}).resize();

@@ -3545,7 +3545,7 @@ fieldset[disabled] .btn-default.active {
 #productFeatures .panel-body p{
 	line-height: 24px !important;
 	font-family: 'Montserrat', sans-serif;
-
+	font-size: 17px;
 }
 #accordion .panel-body p, #accordion .panel-body table td, #accordion .panel-body table th{
 	line-height: 24px !important;
@@ -3790,7 +3790,11 @@ fieldset[disabled] .btn-default.active {
 	}
 	.wrapper-reviews .location{left: 10px; bottom: 10px;font-size: 14px;}
 }
-
+@media (max-width: 812px){
+	#productFeatures .panel-body p{
+		font-size: 15px;
+	}
+}
 .wrapper-reviews blockquote{
 	border: 0px;
 }
@@ -6725,6 +6729,20 @@ table.blog-img span {
 	}
 	.wrapper-prod-bg .detail-content-right{
 		padding: 40px 4%;
+	}
+}
+
+@media (max-width: 1399px){
+	.relative{
+		display: inline-block;
+		width: 100%;
+	}
+	.blog-page .parallax-mb-bg.banner-first{
+		min-height: 350px;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-size: auto;
+		background-position: center;
 	}
 }
 
