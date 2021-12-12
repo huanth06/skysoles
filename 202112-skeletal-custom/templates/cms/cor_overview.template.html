@@ -1,0 +1,174 @@
+
+</div></div>
+<div class="wrapper-prod-bg page-cor-overview" >
+
+	<div class="first-content paralax-bg-no-scrolling parallax-fix-ipad" style="background-image: url([%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%])" >
+		<div class="overplay"></div>	
+		<div class="container" >
+			<div class="row">
+				<div class="main-title text-center">
+					<h1>
+						[@content_name@]
+					</h1>
+					<p>
+						[@content_description1@]
+					</p>
+				</div>
+			</div>
+		</div>
+			<div class="arrow-down">
+		<img src="/assets/images/arrow-next.png" alt="Read more">
+	</div>
+
+	</div>
+	
+
+	<div class="secondary-content">
+
+		<div class="container">
+			<div class="row">
+				<div class="wrap-content">
+					[@content_description2@]
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="cta_block">
+
+		<div class="container">
+			<div class="row">
+
+				[%advert type:'text' limit:'1' ad_group:'cta block'  allow_duplicate:'1' %]
+				[%param *header%]
+				<div class="wrapper-homepage-add">
+					<div class="container">
+						[%/param%]
+						[%param *body%]
+						<div class="row align-items-center">
+							<div class="col-xs-12  col-sm-6 col-md-6">
+								[%if [@headline@]%]
+								<h3>
+									[@headline@] 
+								</h3>
+								[%/if%]
+
+								<p>
+									[%if [@description@]%][@description@][%/if%]
+								</p>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+								<button class="btn-secondary-on-white">
+									<a href="[@url@]">
+										[@linktext@]
+									</a>
+								</button>
+							</div>
+						</div>
+						[%/param%]
+						[%param *footer%]
+					</div>
+				</div>
+				[%/advert%]
+			</div>
+		</div>
+	</div>
+
+	<div class="text_block paralax-bg-no-scrolling parallax-fix-ipad" style="background-image: url([%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%])" >
+		<div class="container">
+			<div class="row">
+
+				[%advert type:'text' limit:'1' ad_group:'image text block'  %]
+				[%param *header%]
+
+				<div class="wrapper-homepage-advert">
+					<div class="container">
+						[%/param%]
+						[%param *body%]
+						<div class="row">
+							<div class="col-xs-12 col-sm-6">
+								<div class="left-banner" data-href="[@url@]">
+									<div class="overplay"></div>
+									<img src="[%asset_url type:'adw' id:'[@ad_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END asset_url%]" alt="[@headline@]">
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6">
+								<div class="adverst-content">
+									<h3>
+										[@headline@]
+									</h3>
+									<div class="content">
+										<p>[@description@]</p>
+									</div>
+									<div class="btn-wrapper">
+										<button class="btn-secondary-on-gray">
+											<a href="[@url@]">
+												[@linktext@]
+											</a>
+										</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						[%/param%]
+						[%param *footer %]
+					</div>
+				</div>
+				[%site_value id:'footer_javascript'%]
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$(".left-banner").click(function(){
+							var url = $(this).attr('data-href');
+							window.location = url;
+						})
+					});
+				</script>
+				[%/site_value%]
+				[%/param%]
+
+				[%/advert%]
+
+			</div>
+		</div>
+
+	</div>
+	<div class="testimonials">
+
+		<div class="container">
+			<div class="row">
+				[%thumb_list type:'content' content_type:'testimonials' limit:'20'  template:'testimonials-thumb' filter_category:''%]
+				[%param *header%]
+				<div class="wrapper-testimonials">
+					<div class="title text-center">
+						<h3> [%content_zone id:'testimonial_title_cor'%][%end content_zone%]</h3>
+					</div>
+					<div class="container">
+						<div class="row">
+							[%/param%]
+							[%param *footer%]
+						</div>
+					</div>
+				</div>
+				[%/param%]
+				[%/thumb_list%]	
+
+			</div>
+		</div>
+	</div>
+	<div class="cor_footer_buttons">
+
+		<div class="container">
+			<div class="row">
+				[%content_zone id:'cor_footer_buttons'%][%end content_zone%]
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</div>
+</div>

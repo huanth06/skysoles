@@ -1,0 +1,49 @@
+<input id="date-end" value="[@misc16@]" type="hidden" />
+<input id="date-start" value="[@misc18@]" type="hidden" />
+<div itemscope itemtype="http://schema.org/Product" class="row">
+	<meta itemprop="brand" content="[@brand@]"/>
+	[%if ![@has_child@] || [@has_variation@]%]
+		<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing col-xs-12">
+			<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
+			<div class="wrapper-pricing-freeshipping">
+				[%if ![@inpromo@]%]
+					<div class="productprice productpricetext" itemprop="price" content="[@store_price@]">
+						<span id="convert" amount="[@store_price@]" title="">[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]</span>
+					</div>
+					[%if [@save@] > 0%]
+						<div class="productrrp">
+							RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]
+						</div>
+						<div class="productsave">
+							SAVE [%format type:'currency'%][@save_price@][%/format%]!
+						</div>
+					[%/if%]
+				[%else%]
+					<div class="productpromo" itemprop="price" content="[@promo_price@]">
+						NOW [%FORMAT type:'currency'%][@promo_price@][%/FORMAT%]
+					</div>
+					[%if [@save@] > 0%]
+						<div class="productrrp">
+							RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]
+						</div>
+						<div class="productsave hidden">
+							SAVE [%format type:'percent'%][@save@][%/format%]!
+						</div>
+					[%/if%]
+					<div class="productsavetext hidden">
+						<span>Sale Ends in</span> <span id="sale-end" class="time"></span>
+						<span class="time-text" itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]">
+							[%format type:'date' format:' #H:#I #a, #d #K #Y'%][@promo_end@][%/format%]
+						</span>
+					</div>
+					<div class="productwasprice hidden">
+						WAS [%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
+					</div>
+				[%/if%]
+				<span class="note">[%content_zone id:'prod_promo_msg'%][%end content_zone%]</span>
+			</div>
+			[%tracking_code type:'BuyingOptions' /%]
+			<p id="currency-flag"><i>The final amount may differ from the amount displayed.</i></p>
+		</div>
+	[%/if%]
+</div>

@@ -1,0 +1,461 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap");
+.space-20 {
+  margin-bottom: 20px; }
+
+.space-30 {
+  margin-bottom: 30px; }
+
+.space-40 {
+  margin-bottom: 40px; }
+
+.space-50 {
+  margin-bottom: 50px; }
+
+.space-60 {
+  margin-bottom: 60px; }
+
+.pd-tb-30 {
+  padding-bottom: 30px;
+  padding-top: 30px; }
+
+.pd-tb-40 {
+  padding-bottom: 40px;
+  padding-top: 40px; }
+
+.pd-tb-50 {
+  padding-bottom: 50px;
+  padding-top: 50px; }
+
+.pd-tb-60 {
+  padding-bottom: 60px;
+  padding-top: 60px; }
+
+* {
+  font-family: Ubuntu,sans-serif; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Ubuntu"; }
+
+@media (min-width: 1440px) {
+  .wrapper-header-top .container {
+    max-width: 1170px;
+    padding: 0 15px; }
+  .free-shipping {
+    margin: 0px; } }
+
+.bg-gray {
+  background: #f6f6f6; }
+
+.content-text .pd-tb-50 {
+  border-bottom: 1px solid #333; }
+  .content-text .pd-tb-50 p {
+    max-width: 930px;
+    margin: 0 auto;
+    font: 400 20px/30px "Ubuntu";
+    color: #333; }
+
+.section-text .box-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .section-text .box-flex .text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .section-text .box-flex .text .content-left h3 {
+      margin-bottom: 40px; }
+    .section-text .box-flex .text h3 {
+      font: 700 28px/32px "Ubuntu";
+      color: #333;
+      margin-bottom: 25px; }
+    .section-text .box-flex .text p {
+      font: 400 13px/18px "Ubuntu";
+      color: #666; }
+    .section-text .box-flex .text .link-btn {
+      display: inline-block;
+      background: #004996;
+      color: #fff;
+      text-transform: uppercase;
+      font: 700 14px/50px "Ubuntu";
+      border-radius: 50px;
+      padding: 0 25px;
+      -webkit-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+      margin-top: 15px; }
+      .section-text .box-flex .text .link-btn:hover {
+        opacity: 0.7; }
+      .section-text .box-flex .text .link-btn .fa {
+        font-size: 11px;
+        margin-left: 6px;
+        vertical-align: 0px; }
+    .section-text .box-flex .text .inner {
+      display: inline-block; }
+  .section-text .box-flex > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    padding-right: 15px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .section-text .box-flex > div:nth-child(2) {
+      padding-right: 0px;
+      padding-left: 15px; }
+
+#menu_tabs {
+  margin-left: -10px;
+  width: calc(100% + 20px);
+  display: inline-block;
+  padding: 0 5px; }
+  #menu_tabs .link {
+    display: inline-block;
+    width: calc(25% - 10px);
+    height: 200px;
+    float: left;
+    margin: 0 5px;
+    position: relative;
+    cursor: pointer; }
+    #menu_tabs .link.active .inner-link {
+      color: #fff;
+      position: relative; }
+      #menu_tabs .link.active .inner-link:before {
+        opacity: 1; }
+      #menu_tabs .link.active .inner-link h3:before {
+        content: "\f077"; }
+    #menu_tabs .link.active img {
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1); }
+    #menu_tabs .link .inner-link {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 100%;
+      padding: 10px 0px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      z-index: 99;
+      position: relative;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      #menu_tabs .link .inner-link:before {
+        opacity: 0;
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        position: absolute;
+        bottom: -30px;
+        display: inline-block;
+        content: "";
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #f5f5f5; }
+      #menu_tabs .link .inner-link h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 15px; }
+        #menu_tabs .link .inner-link h3:before {
+          content: "\f078";
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          position: absolute;
+          bottom: 0px;
+          left: 50%;
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
+      #menu_tabs .link .inner-link .icon {
+        display: inline-block;
+        margin-bottom: 20px; }
+    #menu_tabs .link:before {
+      position: absolute;
+      left: -10px;
+      background: #fff;
+      width: 10px;
+      height: 100%;
+      top: 0px;
+      content: "";
+      z-index: 99; }
+    #menu_tabs .link:after {
+      position: absolute;
+      left: 0px;
+      top: 10px;
+      width: 100%;
+      height: calc(100% - 20px);
+      background: rgba(0, 0, 0, 0);
+      content: "";
+      display: inline-block;
+      -webkit-box-shadow: 0px 0px 6px #ccc;
+      box-shadow: 0px 0px 6px #ccc;
+      z-index: 999; }
+
+#content_tabs {
+  margin-top: -5px;
+  padding-top: 30px; }
+  #content_tabs .content-tabs {
+    display: none;
+    background: #f5f5f5;
+    padding: 40px;
+    position: relative;
+    position: relative; }
+
+#run_effect {
+  display: none;
+  height: calc(100% - 25px);
+  position: absolute;
+  background: #004996;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  top: 10px;
+  z-index: 9;
+  width: calc(25% - 7px); }
+  #run_effect.active {
+    display: inline-block; }
+
+#over_hidden_rel {
+  position: relative;
+  display: inline-block;
+  width: 100%; }
+
+.content-right {
+  margin-bottom: 50px; }
+  .content-right .section-text {
+    padding: 50px 0 0; }
+
+.content-left .section-text {
+  padding: 50px 0; }
+
+.content-tabs h3 {
+  text-transform: uppercase;
+  font: 700 18px/22px "Ubuntu";
+  margin-bottom: 10px; }
+
+.content-tabs i {
+  font-style: italic; }
+  .content-tabs i.fa {
+    font-style: normal; }
+
+.content-tabs p {
+  font: 400 14px/24px "Ubuntu";
+  margin-bottom: 10px; }
+  .content-tabs p.space-50 {
+    margin-bottom: 50px; }
+
+.content-tabs ul {
+  margin-bottom: 20px;
+  padding-left: 0px; }
+  .content-tabs ul li {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 5px; }
+    .content-tabs ul li:before {
+      content: "";
+      display: inline-block;
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      background: #004996;
+      left: 5px;
+      top: 7px;
+      position: absolute; }
+
+.content-sizing p {
+  font: 400 14px/22px "Ubuntu"; }
+
+.content-sizing .box {
+  display: inline-block;
+  width: 100%;
+  margin-top: 20px; }
+  .content-sizing .box .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .content-sizing .box .item a {
+      display: inline-block;
+      border-radius: 20px;
+      margin: 6px 0px;
+      padding: 0 20px;
+      background: #004996;
+      color: #fff;
+      text-transform: uppercase;
+      height: 24px;
+      font-size: 12px;
+      line-height: 24px;
+      -webkit-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s; }
+      .content-sizing .box .item a:hover {
+        opacity: 0.7; }
+  .content-sizing .box h3 {
+    text-transform: uppercase;
+    font: 700 18px/22px "Ubuntu";
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; }
+  .content-sizing .box .col-md-6:nth-child(1) {
+    padding-left: 0px; }
+  .content-sizing .box .col-md-6:nth-child(2) {
+    padding-right: 0px; }
+
+.tabs-vertical {
+  border-bottom: 1px solid #ccc; }
+  .tabs-vertical .tav-title {
+    cursor: pointer;
+    text-transform: inherit;
+    font: 700 14px/20px "Ubuntu";
+    position: relative;
+    padding-left: 35px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    padding-right: 30px; }
+    .tabs-vertical .tav-title:hover {
+      color: #4C7EB3; }
+    .tabs-vertical .tav-title span {
+      display: inline-block;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-family: "Ubuntu"; }
+    .tabs-vertical .tav-title:after {
+      content: "\f078";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      position: absolute;
+      right: 10px;
+      top: 14px;
+      color: #4C7EB3; }
+    .tabs-vertical .tav-title.active:after {
+      content: "\f077"; }
+  .tabs-vertical .tav-content {
+    display: none;
+    padding-left: 35px;
+    padding-right: 15px; }
+    .tabs-vertical .tav-content.active {
+      display: block; }
+
+@media (max-width: 1199px) and (min-width: 993px) {
+  .container {
+    width: calc(100% - 10px); }
+  address {
+    padding: 0 15px; } }
+
+@media (max-width: 991px) {
+  .content-sizing .box .col-md-6:first-child {
+    margin-bottom: 20px; }
+  .row {
+    margin-left: -10px;
+    margin-right: -10px; }
+  .content-sizing .box .col-md-6:nth-child(2) {
+    padding-left: 0px; }
+  .col-xs-12.col-sm-10 {
+    padding: 0 10px; }
+  address {
+    padding: 0 15px; } }
+
+.tabs-vertical .tav-title.title-tabs-mobile {
+  display: none; }
+
+@media (max-width: 767px) {
+  .breadcrumb {
+    margin: 20px 0 10px; }
+  .about-top .page-title {
+    font-size: 24px; }
+  .about-top .page-des {
+    font: 700 13px/18px "Ubuntu"; }
+  .content-text.text-center.space-50 {
+    margin-bottom: 30px; }
+  .content-text .pd-tb-50 {
+    padding: 25px 0; }
+  .content-text .pd-tb-50 p {
+    font-size: 14px;
+    line-height: 22px; }
+  .section-text .box-flex > div {
+    width: 100%;
+    padding: 10px 0px; }
+    .section-text .box-flex > div:nth-child(2) {
+      padding-left: 0px; }
+  .section-text .box-flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .tabs-vertical .tav-title.title-tabs-mobile {
+    display: block;
+    text-transform: uppercase;
+    font: 700 18px "Ubuntu";
+    padding-left: 12px;
+    margin: 0px;
+    padding-bottom: 10px;
+    border: none;
+    -webkit-box-shadow: 0px 0px 5px #eee;
+    box-shadow: 0px 0px 5px #eee;
+    margin-bottom: 5px; }
+    .tabs-vertical .tav-title.title-tabs-mobile .icon {
+      display: inline-block;
+      position: static;
+      margin-right: 15px; }
+  #over_hidden_rel {
+    display: none; }
+  #content_tabs .content-tabs {
+    padding: 20px;
+    margin-top: -6px;
+    border-top: 1px solid #dcdcdc; }
+  .tabs-vertical .tav-title:after {
+    top: 24px;
+    color: #333; }
+  .tabs-vertical .tav-title:hover {
+    color: #333; }
+  .section-text {
+    padding: 20px 0px; }
+  .section-text .box-flex .text h3 {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 10px; }
+  .section-text .box-flex .text .link-btn {
+    font: 700 13px/32px "Ubuntu";
+    padding: 0 15px; }
+  .content-sizing .box .item a {
+    font-size: 0px;
+    padding: 0 15px; }
+    .content-sizing .box .item a i {
+      font-size: 14px;
+      font-style: normal;
+      line-height: 23px; }
+  .inner-logo {
+    margin-left: -20px; } }
+
+@media (max-width: 560px) {
+  .free-shipping {
+    margin-bottom: 10px; } }
