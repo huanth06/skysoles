@@ -7688,6 +7688,9 @@ table.blog-img span {
 		padding-right: 20px;
 	}
 }
+.pl-mb{
+	display: none;
+}
 .overplay{
 	position: absolute;
 	top: 0px;
@@ -7730,6 +7733,9 @@ table.blog-img span {
 }
 
 @media (max-width: 1399px){
+	.pl-mb{
+		display: block;
+	}
 	.parallax-fix-ipad{
 		background-size: auto;
 		background-repeat: no-repeat;
@@ -7744,6 +7750,14 @@ table.blog-img span {
 	}
 	.innovation-box-image + .parallax-mb{
 		margin-top: 35px;
+	}
+	.parallax-mb-bg.banner-second{
+		min-height: 350px;
+		background-size: auto;
+		background-repeat: no-repeat;	
+	}
+	.parallax-mb-bg.parallax-mb-bg-right{
+		background-position: center right;
 	}
 }
 

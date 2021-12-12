@@ -400,10 +400,6 @@ function imageSwap2() {
   else{
     $( function () { 
         $('.paralax-bg').hide();
-         $('.paralax-bg').each(function(){
-            var src_banner_mb = $(this).attr("data-image-src");
-            $( "<div class='parallax-mb'><img src='"+src_banner_mb+"' /></div>" ).insertAfter(this);
-        });
     });
   }
 

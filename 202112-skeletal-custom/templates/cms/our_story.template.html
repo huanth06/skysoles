@@ -33,7 +33,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="paralax-bg" data-parallax="scroll" data-position="center"  data-bleed="10" data-image-src="[%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%]" data-natural-width="1920" data-natural-height="850"></div>
+	
+	[%set [@image_custom@] %][%asset_url type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END ASSET_URL%][%/set%]
+	[% if [@image_custom@] not like 'pixel' %]
+	<div class="paralax-bg" data-parallax="scroll" data-position="center"  data-bleed="10" data-image-src="[@image_custom@]" data-natural-width="1920" data-natural-height="850"></div>
+	<div class="parallax-mb pl-mb"><img src="[@image_custom@]"></div>
+	[%/if%]
 	<div class="our-story-accordion">
 		<div class="container">
 			<div class="row">
