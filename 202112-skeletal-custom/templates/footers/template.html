@@ -307,9 +307,13 @@
 $(document).ready(function(){
 	var open = false;
 	$('#menu-mobile > li.dropdown-hover-subcat > a').click(function(){
-		
-
-			const getH = $(this).next().height() + 15;
+			var getH = 0;
+			if($(this).next().hasClass("custom")){
+				getH = $(this).next().height() + 15;
+			}
+			else{
+				getH = $(this).next().height() + 30;
+			}
 			
 			if($(this).parent().hasClass('open')){
 				$('.pageHeaderMenu--spacing-helper').height('0');
@@ -323,6 +327,7 @@ $(document).ready(function(){
 					$(this).css('background-color', 'transparent')
 			 		$(this).parent().removeClass('active');
 			 	}
+
 			}else{
 				$('.pageHeaderMenu--spacing-helper').height(getH);
 				$('.dropdown-hover-subcat').removeClass('open');
